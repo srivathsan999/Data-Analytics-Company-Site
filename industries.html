@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Industries - Data Analytics Company</title>
+    <meta name="description" content="Data analytics solutions for various industries.">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <link rel="stylesheet" href="assets/css/tailwind.css">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        'bg': 'var(--bg)',
+                        'surface': 'var(--surface)',
+                        'text': 'var(--text)',
+                        'muted': 'var(--muted)',
+                        'primary': 'var(--primary)',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-[var(--bg)] text-[var(--text)]">
+    
+    <!-- Navbar -->
+    <nav class="sticky top-0 z-50 bg-[var(--surface)] border-b border-[var(--muted)]/20 backdrop-blur-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-2 sm:space-x-3">
+                    <img src="assets/img/logo.svg" alt="Logo" class="h-7 w-7 sm:h-8 sm:w-8">
+                    <span class="text-lg sm:text-xl font-semibold logo-text">DataAnalytics Pro</span>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="index.html" class="hover:text-[var(--primary)] transition-colors">Home</a>
+                    <a href="services.html" class="hover:text-[var(--primary)] transition-colors">Services</a>
+                    <a href="industries.html" class="text-[var(--primary)] font-medium">Industries</a>
+                    <a href="case-studies.html" class="hover:text-[var(--primary)] transition-colors">Case Studies</a>
+                    <a href="about.html" class="hover:text-[var(--primary)] transition-colors">About</a>
+                    <a href="contact.html" class="hover:text-[var(--primary)] transition-colors">Contact</a>
+                </div>
+                
+                <!-- Desktop Actions -->
+                <div class="hidden lg:flex items-center space-x-4">
+                    <button id="theme-toggle" class="theme-toggle p-2 rounded-lg hover:bg-[var(--muted)]/10 transition-colors" aria-label="Toggle theme">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+                        </svg>
+                    </button>
+                    <a href="signup.html" class="px-4 py-2 border border-[var(--muted)]/30 rounded-lg hover:bg-[var(--surface)] transition-colors font-medium text-sm">
+                        Sign Up
+                    </a>
+                    <a href="contact.html" class="px-4 py-2 bg-[var(--primary)] text-white rounded-lg hover:opacity-90 transition-opacity font-medium text-sm">
+                        Request Consultation
+                    </a>
+                </div>
+                
+                <!-- Mobile/Tablet Actions -->
+                <div class="flex lg:hidden items-center space-x-2">
+                    <button id="theme-toggle-mobile" class="theme-toggle p-2 rounded-lg hover:bg-[var(--muted)]/10 transition-colors" aria-label="Toggle theme">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+                        </svg>
+                    </button>
+                    <button id="mobile-menu-toggle" class="p-2 rounded-lg hover:bg-[var(--muted)]/10 transition-colors" aria-label="Toggle menu">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="mobile-menu lg:hidden">
+                <div class="py-4 space-y-3 border-t border-[var(--muted)]/20">
+                    <a href="index.html" class="block px-4 py-2 hover:text-[var(--primary)] transition-colors">Home</a>
+                    <a href="services.html" class="block px-4 py-2 hover:text-[var(--primary)] transition-colors">Services</a>
+                    <a href="industries.html" class="block px-4 py-2 text-[var(--primary)] font-medium">Industries</a>
+                    <a href="case-studies.html" class="block px-4 py-2 hover:text-[var(--primary)] transition-colors">Case Studies</a>
+                    <a href="about.html" class="block px-4 py-2 hover:text-[var(--primary)] transition-colors">About</a>
+                    <a href="contact.html" class="block px-4 py-2 hover:text-[var(--primary)] transition-colors">Contact</a>
+                    <div class="pt-2 space-y-2 px-4">
+                        <a href="signup.html" class="block w-[70%] mx-auto px-4 py-2 text-center border border-[var(--muted)]/30 rounded-lg hover:bg-[var(--surface)] transition-colors font-medium">
+                            Sign Up
+                        </a>
+                        <a href="contact.html" class="block w-[70%] mx-auto px-4 py-2 text-center bg-[var(--primary)] text-white rounded-lg hover:opacity-90 transition-opacity font-medium">
+                            Request Consultation
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="py-12 sm:py-16 md:py-20 bg-[var(--surface)]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center" data-animate>
+                <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4">Industries We Serve</h1>
+                <p class="text-base sm:text-lg md:text-xl text-[var(--muted)] max-w-2xl mx-auto px-4">
+                    Specialized analytics solutions tailored to your industry's unique challenges and opportunities
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industries Grid -->
+    <section class="py-12 sm:py-16 md:py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                
+                <div class="bg-[var(--surface)] rounded-lg p-6 sm:p-8 border border-[var(--muted)]/20 h-full hover:shadow-lg transition-shadow" data-animate>
+                    <div class="text-4xl mb-4">🏥</div>
+                    <h3 class="text-xl sm:text-2xl font-semibold mb-3">Healthcare</h3>
+                    <p class="text-[var(--muted)] mb-4">
+                        Patient outcome analytics, operational efficiency, and predictive health modeling to improve care delivery and reduce costs.
+                    </p>
+                    <div class="text-sm text-[var(--muted)]">
+                        <p class="font-medium mb-2">Solutions:</p>
+                        <ul class="space-y-1 list-disc list-inside">
+                            <li>Clinical decision support systems</li>
+                            <li>Population health analytics</li>
+                            <li>Revenue cycle optimization</li>
+                            <li>Patient readmission prediction</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="bg-[var(--surface)] rounded-lg p-6 sm:p-8 border border-[var(--muted)]/20 h-full hover:shadow-lg transition-shadow" data-animate>
+                    <div class="text-4xl mb-4">💼</div>
+                    <h3 class="text-xl sm:text-2xl font-semibold mb-3">Finance</h3>
+                    <p class="text-[var(--muted)] mb-4">
+                        Risk assessment, fraud detection, and portfolio optimization using advanced analytics and machine learning models.
+                    </p>
+                    <div class="text-sm text-[var(--muted)]">
+                        <p class="font-medium mb-2">Solutions:</p>
+                        <ul class="space-y-1 list-disc list-inside">
+                            <li>Credit risk modeling</li>
+                            <li>Anti-money laundering detection</li>
+                            <li>Algorithmic trading analytics</li>
+                            <li>Regulatory compliance reporting</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="bg-[var(--surface)] rounded-lg p-6 sm:p-8 border border-[var(--muted)]/20 h-full hover:shadow-lg transition-shadow" data-animate>
+                    <div class="text-4xl mb-4">🛒</div>
+                    <h3 class="text-xl sm:text-2xl font-semibold mb-3">Retail</h3>
+                    <p class="text-[var(--muted)] mb-4">
+                        Customer behavior analysis, inventory optimization, and demand forecasting to drive sales and reduce waste.
+                    </p>
+                    <div class="text-sm text-[var(--muted)]">
+                        <p class="font-medium mb-2">Solutions:</p>
+                        <ul class="space-y-1 list-disc list-inside">
+                            <li>Customer segmentation and targeting</li>
+                            <li>Price optimization models</li>
+                            <li>Supply chain analytics</li>
+                            <li>Omnichannel performance tracking</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="bg-[var(--surface)] rounded-lg p-6 sm:p-8 border border-[var(--muted)]/20 h-full hover:shadow-lg transition-shadow" data-animate>
+                    <div class="text-4xl mb-4">🏭</div>
+                    <h3 class="text-xl sm:text-2xl font-semibold mb-3">Manufacturing</h3>
+                    <p class="text-[var(--muted)] mb-4">
+                        Predictive maintenance, quality control analytics, and supply chain optimization for operational excellence.
+                    </p>
+                    <div class="text-sm text-[var(--muted)]">
+                        <p class="font-medium mb-2">Solutions:</p>
+                        <ul class="space-y-1 list-disc list-inside">
+                            <li>IoT sensor data analytics</li>
+                            <li>Production line optimization</li>
+                            <li>Quality defect prediction</li>
+                            <li>Energy consumption analytics</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="bg-[var(--surface)] rounded-lg p-6 sm:p-8 border border-[var(--muted)]/20 h-full hover:shadow-lg transition-shadow" data-animate>
+                    <div class="text-4xl mb-4">🚚</div>
+                    <h3 class="text-xl sm:text-2xl font-semibold mb-3">Logistics</h3>
+                    <p class="text-[var(--muted)] mb-4">
+                        Route optimization, fleet management analytics, and delivery performance tracking to improve efficiency.
+                    </p>
+                    <div class="text-sm text-[var(--muted)]">
+                        <p class="font-medium mb-2">Solutions:</p>
+                        <ul class="space-y-1 list-disc list-inside">
+                            <li>Dynamic routing optimization</li>
+                            <li>Fleet utilization analytics</li>
+                            <li>Delivery time prediction</li>
+                            <li>Warehouse management systems</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="bg-[var(--surface)] rounded-lg p-6 sm:p-8 border border-[var(--muted)]/20 h-full hover:shadow-lg transition-shadow" data-animate>
+                    <div class="text-4xl mb-4">🎓</div>
+                    <h3 class="text-xl sm:text-2xl font-semibold mb-3">Education</h3>
+                    <p class="text-[var(--muted)] mb-4">
+                        Student performance analytics, enrollment forecasting, and institutional effectiveness measurement.
+                    </p>
+                    <div class="text-sm text-[var(--muted)]">
+                        <p class="font-medium mb-2">Solutions:</p>
+                        <ul class="space-y-1 list-disc list-inside">
+                            <li>Learning analytics and outcomes</li>
+                            <li>Student retention prediction</li>
+                            <li>Resource allocation optimization</li>
+                            <li>Institutional research analytics</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="bg-[var(--surface)] rounded-lg p-6 sm:p-8 border border-[var(--muted)]/20 h-full hover:shadow-lg transition-shadow" data-animate>
+                    <div class="text-4xl mb-4">⚡</div>
+                    <h3 class="text-xl sm:text-2xl font-semibold mb-3">Energy & Utilities</h3>
+                    <p class="text-[var(--muted)] mb-4">
+                        Smart grid analytics, consumption forecasting, and asset management to optimize operations and reduce costs.
+                    </p>
+                    <div class="text-sm text-[var(--muted)]">
+                        <p class="font-medium mb-2">Solutions:</p>
+                        <ul class="space-y-1 list-disc list-inside">
+                            <li>Demand forecasting models</li>
+                            <li>Asset performance management</li>
+                            <li>Renewable energy optimization</li>
+                            <li>Customer usage analytics</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="bg-[var(--surface)] rounded-lg p-6 sm:p-8 border border-[var(--muted)]/20 h-full hover:shadow-lg transition-shadow" data-animate>
+                    <div class="text-4xl mb-4">🏢</div>
+                    <h3 class="text-xl sm:text-2xl font-semibold mb-3">Real Estate</h3>
+                    <p class="text-[var(--muted)] mb-4">
+                        Property valuation analytics, market trend analysis, and investment optimization for informed decision-making.
+                    </p>
+                    <div class="text-sm text-[var(--muted)]">
+                        <p class="font-medium mb-2">Solutions:</p>
+                        <ul class="space-y-1 list-disc list-inside">
+                            <li>Property value prediction</li>
+                            <li>Market trend analysis</li>
+                            <li>Portfolio optimization</li>
+                            <li>Tenant behavior analytics</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="bg-[var(--surface)] rounded-lg p-6 sm:p-8 border border-[var(--muted)]/20 h-full hover:shadow-lg transition-shadow" data-animate>
+                    <div class="text-4xl mb-4">🎮</div>
+                    <h3 class="text-xl sm:text-2xl font-semibold mb-3">Technology & Media</h3>
+                    <p class="text-[var(--muted)] mb-4">
+                        User behavior analytics, content optimization, and platform performance monitoring to enhance engagement.
+                    </p>
+                    <div class="text-sm text-[var(--muted)]">
+                        <p class="font-medium mb-2">Solutions:</p>
+                        <ul class="space-y-1 list-disc list-inside">
+                            <li>User engagement analytics</li>
+                            <li>Content recommendation engines</li>
+                            <li>A/B testing and experimentation</li>
+                            <li>Platform performance monitoring</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-[var(--primary)] text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center" data-animate>
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">Need Industry-Specific Solutions?</h2>
+            <p class="text-xl mb-8 opacity-90">
+                Our experts understand your industry's unique challenges and opportunities.
+            </p>
+            <a href="contact.html" class="inline-block px-8 py-3 bg-white text-[var(--primary)] rounded-lg hover:opacity-90 transition-opacity font-medium">
+                Contact Us
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[var(--surface)] border-t border-[var(--muted)]/20 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <img src="assets/img/logo.svg" alt="Logo" class="h-8 w-8">
+                        <span class="text-xl font-semibold">DataAnalytics Pro</span>
+                    </div>
+                    <p class="text-[var(--muted)] text-sm">
+                        Enterprise data analytics solutions for forward-thinking businesses.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Services</h4>
+                    <ul class="space-y-2 text-sm text-[var(--muted)]">
+                        <li><a href="services.html" class="hover:text-[var(--primary)] transition-colors">Data Engineering</a></li>
+                        <li><a href="services.html" class="hover:text-[var(--primary)] transition-colors">Business Intelligence</a></li>
+                        <li><a href="services.html" class="hover:text-[var(--primary)] transition-colors">Predictive Analytics</a></li>
+                        <li><a href="services.html" class="hover:text-[var(--primary)] transition-colors">Data Visualization</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Industries</h4>
+                    <ul class="space-y-2 text-sm text-[var(--muted)]">
+                        <li><a href="industries.html" class="hover:text-[var(--primary)] transition-colors">Healthcare</a></li>
+                        <li><a href="industries.html" class="hover:text-[var(--primary)] transition-colors">Finance</a></li>
+                        <li><a href="industries.html" class="hover:text-[var(--primary)] transition-colors">Retail</a></li>
+                        <li><a href="industries.html" class="hover:text-[var(--primary)] transition-colors">Manufacturing</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Contact</h4>
+                    <ul class="space-y-2 text-sm text-[var(--muted)]">
+                        <li>info@dataanalyticspro.com</li>
+                        <li>+1 (555) 123-4567</li>
+                        <li><a href="contact.html" class="hover:text-[var(--primary)] transition-colors">Contact Us</a></li>
+                        <li><a href="about.html" class="hover:text-[var(--primary)] transition-colors">About Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="mt-8 pt-8 border-t border-[var(--muted)]/20 text-center text-sm text-[var(--muted)]">
+                <p>&copy; 2024 DataAnalytics Pro. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/theme.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
+

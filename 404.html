@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found - Data Analytics Company</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="assets/css/tailwind.css">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        'bg': 'var(--bg)',
+                        'surface': 'var(--surface)',
+                        'text': 'var(--text)',
+                        'muted': 'var(--muted)',
+                        'primary': 'var(--primary)',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-[var(--bg)] text-[var(--text)]">
+    
+    <!-- Navbar -->
+    <nav class="sticky top-0 z-50 bg-[var(--surface)] border-b border-[var(--muted)]/20 backdrop-blur-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-3">
+                    <img src="assets/img/logo.svg" alt="Logo" class="h-8 w-8">
+                    <a href="index.html" class="text-xl font-semibold">DataAnalytics Pro</a>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="hover:text-[var(--primary)] transition-colors">Home</a>
+                    <a href="services.html" class="hover:text-[var(--primary)] transition-colors">Services</a>
+                    <a href="industries.html" class="hover:text-[var(--primary)] transition-colors">Industries</a>
+                    <a href="case-studies.html" class="hover:text-[var(--primary)] transition-colors">Case Studies</a>
+                    <a href="about.html" class="hover:text-[var(--primary)] transition-colors">About</a>
+                    <a href="contact.html" class="hover:text-[var(--primary)] transition-colors">Contact</a>
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                    <button id="theme-toggle" class="theme-toggle p-2 rounded-lg hover:bg-[var(--muted)]/10 transition-colors" aria-label="Toggle theme">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+                        </svg>
+                    </button>
+                    <a href="signup.html" class="px-4 py-2 border border-[var(--muted)]/30 rounded-lg hover:bg-[var(--surface)] transition-colors font-medium">
+                        Sign Up
+                    </a>
+                    <a href="contact.html" class="px-4 py-2 bg-[var(--primary)] text-white rounded-lg hover:opacity-90 transition-opacity font-medium">
+                        Request Consultation
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 404 Content -->
+    <section class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center" data-animate>
+                <h1 class="text-6xl md:text-8xl font-bold mb-4 text-[var(--primary)]">404</h1>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Page Not Found</h2>
+                <p class="text-lg text-[var(--muted)] mb-8 max-w-2xl mx-auto">
+                    The page you're looking for doesn't exist or has been moved.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="index.html" class="px-8 py-3 bg-[var(--primary)] text-white rounded-lg hover:opacity-90 transition-opacity font-medium">
+                        Go to Homepage
+                    </a>
+                    <a href="contact.html" class="px-8 py-3 border border-[var(--muted)]/30 rounded-lg hover:bg-[var(--surface)] transition-colors font-medium">
+                        Contact Us
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[var(--surface)] border-t border-[var(--muted)]/20 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <img src="assets/img/logo.svg" alt="Logo" class="h-8 w-8">
+                        <span class="text-xl font-semibold">DataAnalytics Pro</span>
+                    </div>
+                    <p class="text-[var(--muted)] text-sm">
+                        Enterprise data analytics solutions for forward-thinking businesses.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Services</h4>
+                    <ul class="space-y-2 text-sm text-[var(--muted)]">
+                        <li><a href="services.html" class="hover:text-[var(--primary)] transition-colors">Data Engineering</a></li>
+                        <li><a href="services.html" class="hover:text-[var(--primary)] transition-colors">Business Intelligence</a></li>
+                        <li><a href="services.html" class="hover:text-[var(--primary)] transition-colors">Predictive Analytics</a></li>
+                        <li><a href="services.html" class="hover:text-[var(--primary)] transition-colors">Data Visualization</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Industries</h4>
+                    <ul class="space-y-2 text-sm text-[var(--muted)]">
+                        <li><a href="industries.html" class="hover:text-[var(--primary)] transition-colors">Healthcare</a></li>
+                        <li><a href="industries.html" class="hover:text-[var(--primary)] transition-colors">Finance</a></li>
+                        <li><a href="industries.html" class="hover:text-[var(--primary)] transition-colors">Retail</a></li>
+                        <li><a href="industries.html" class="hover:text-[var(--primary)] transition-colors">Manufacturing</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Contact</h4>
+                    <ul class="space-y-2 text-sm text-[var(--muted)]">
+                        <li>info@dataanalyticspro.com</li>
+                        <li>+1 (555) 123-4567</li>
+                        <li><a href="contact.html" class="hover:text-[var(--primary)] transition-colors">Contact Us</a></li>
+                        <li><a href="about.html" class="hover:text-[var(--primary)] transition-colors">About Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="mt-8 pt-8 border-t border-[var(--muted)]/20 text-center text-sm text-[var(--muted)]">
+                <p>&copy; 2024 DataAnalytics Pro. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/theme.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
+

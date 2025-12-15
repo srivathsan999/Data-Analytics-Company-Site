@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Studies - Data Analytics Company</title>
+    <meta name="description" content="Real-world success stories from our data analytics implementations.">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <link rel="stylesheet" href="assets/css/tailwind.css">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        'bg': 'var(--bg)',
+                        'surface': 'var(--surface)',
+                        'text': 'var(--text)',
+                        'muted': 'var(--muted)',
+                        'primary': 'var(--primary)',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-[var(--bg)] text-[var(--text)]">
+    
+    <!-- Navbar -->
+    <nav class="sticky top-0 z-50 bg-[var(--surface)] border-b border-[var(--muted)]/20 backdrop-blur-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-2 sm:space-x-3">
+                    <img src="assets/img/logo.svg" alt="Logo" class="h-7 w-7 sm:h-8 sm:w-8">
+                    <span class="text-lg sm:text-xl font-semibold logo-text">DataAnalytics Pro</span>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="index.html" class="hover:text-[var(--primary)] transition-colors">Home</a>
+                    <a href="services.html" class="hover:text-[var(--primary)] transition-colors">Services</a>
+                    <a href="industries.html" class="hover:text-[var(--primary)] transition-colors">Industries</a>
+                    <a href="case-studies.html" class="text-[var(--primary)] font-medium">Case Studies</a>
+                    <a href="about.html" class="hover:text-[var(--primary)] transition-colors">About</a>
+                    <a href="contact.html" class="hover:text-[var(--primary)] transition-colors">Contact</a>
+                </div>
+                
+                <!-- Desktop Actions -->
+                <div class="hidden lg:flex items-center space-x-4">
+                    <button id="theme-toggle" class="theme-toggle p-2 rounded-lg hover:bg-[var(--muted)]/10 transition-colors" aria-label="Toggle theme">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+                        </svg>
+                    </button>
+                    <a href="signup.html" class="px-4 py-2 border border-[var(--muted)]/30 rounded-lg hover:bg-[var(--surface)] transition-colors font-medium text-sm">
+                        Sign Up
+                    </a>
+                    <a href="contact.html" class="px-4 py-2 bg-[var(--primary)] text-white rounded-lg hover:opacity-90 transition-opacity font-medium text-sm">
+                        Request Consultation
+                    </a>
+                </div>
+                
+                <!-- Mobile/Tablet Actions -->
+                <div class="flex lg:hidden items-center space-x-2">
+                    <button id="theme-toggle-mobile" class="theme-toggle p-2 rounded-lg hover:bg-[var(--muted)]/10 transition-colors" aria-label="Toggle theme">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+                        </svg>
+                    </button>
+                    <button id="mobile-menu-toggle" class="p-2 rounded-lg hover:bg-[var(--muted)]/10 transition-colors" aria-label="Toggle menu">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="mobile-menu lg:hidden">
+                <div class="py-4 space-y-3 border-t border-[var(--muted)]/20">
+                    <a href="index.html" class="block px-4 py-2 hover:text-[var(--primary)] transition-colors">Home</a>
+                    <a href="services.html" class="block px-4 py-2 hover:text-[var(--primary)] transition-colors">Services</a>
+                    <a href="industries.html" class="block px-4 py-2 hover:text-[var(--primary)] transition-colors">Industries</a>
+                    <a href="case-studies.html" class="block px-4 py-2 text-[var(--primary)] font-medium">Case Studies</a>
+                    <a href="about.html" class="block px-4 py-2 hover:text-[var(--primary)] transition-colors">About</a>
+                    <a href="contact.html" class="block px-4 py-2 hover:text-[var(--primary)] transition-colors">Contact</a>
+                    <div class="pt-2 space-y-2 px-4">
+                        <a href="signup.html" class="block w-[70%] mx-auto px-4 py-2 text-center border border-[var(--muted)]/30 rounded-lg hover:bg-[var(--surface)] transition-colors font-medium">
+                            Sign Up
+                        </a>
+                        <a href="contact.html" class="block w-[70%] mx-auto px-4 py-2 text-center bg-[var(--primary)] text-white rounded-lg hover:opacity-90 transition-opacity font-medium">
+                            Request Consultation
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="py-12 sm:py-16 md:py-20 bg-[var(--surface)]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center" data-animate>
+                <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4">Case Studies</h1>
+                <p class="text-base sm:text-lg md:text-xl text-[var(--muted)] max-w-2xl mx-auto px-4">
+                    Real results from real implementations across diverse industries
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Studies -->
+    <section class="py-12 sm:py-16 md:py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="space-y-8 sm:space-y-12">
+                
+                <div class="bg-[var(--surface)] rounded-lg p-6 sm:p-8 border border-[var(--muted)]/20 hover:shadow-lg transition-shadow" data-animate>
+                    <h2 class="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4">Fortune 500 Retail Chain</h2>
+                    <p class="text-base sm:text-lg text-[var(--muted)] mb-4 sm:mb-6">
+                        A major retail chain with over 1,000 locations needed to optimize inventory management across all stores. Stockouts were costing millions in lost sales, while excess inventory tied up capital and increased storage costs.
+                    </p>
+                    <h3 class="text-lg sm:text-xl font-semibold mb-2 sm:mb-3">Solution</h3>
+                    <p class="text-[var(--muted)] mb-3 sm:mb-4">
+                        We implemented a predictive inventory management system using machine learning models that analyzed historical sales data, seasonal patterns, local demographics, and external factors like weather and events. The system provided real-time recommendations for inventory levels at each location.
+                    </p>
+                    <h3 class="text-lg sm:text-xl font-semibold mb-2 sm:mb-3">Results</h3>
+                    <div class="grid md:grid-cols-3 gap-4 sm:gap-6">
+                        <div>
+                            <div class="text-2xl sm:text-3xl font-bold text-[var(--primary)] mb-1 sm:mb-2">45%</div>
+                            <div class="text-sm sm:text-base text-[var(--muted)]">Reduction in stockouts</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl sm:text-3xl font-bold text-[var(--primary)] mb-1 sm:mb-2">30%</div>
+                            <div class="text-sm sm:text-base text-[var(--muted)]">Reduction in excess inventory</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl sm:text-3xl font-bold text-[var(--primary)] mb-1 sm:mb-2">$12M</div>
+                            <div class="text-sm sm:text-base text-[var(--muted)]">Annual cost savings</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-[var(--surface)] rounded-lg p-6 sm:p-8 border border-[var(--muted)]/20 hover:shadow-lg transition-shadow" data-animate>
+                    <h2 class="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4">Healthcare Provider Network</h2>
+                    <p class="text-base sm:text-lg text-[var(--muted)] mb-4 sm:mb-6">
+                        A regional healthcare network with 15 hospitals and 200+ clinics struggled with patient readmission rates and care coordination across facilities, leading to increased costs and reduced patient satisfaction.
+                    </p>
+                    <h3 class="text-lg sm:text-xl font-semibold mb-2 sm:mb-3">Solution</h3>
+                    <p class="text-[var(--muted)] mb-3 sm:mb-4">
+                        We developed a real-time patient analytics platform that integrated data from all facilities, enabling care teams to identify high-risk patients, track care transitions, and coordinate treatment plans. The platform included predictive models for readmission risk and care pathway optimization.
+                    </p>
+                    <h3 class="text-lg sm:text-xl font-semibold mb-2 sm:mb-3">Results</h3>
+                    <div class="grid md:grid-cols-3 gap-4 sm:gap-6">
+                        <div>
+                            <div class="text-2xl sm:text-3xl font-bold text-[var(--primary)] mb-1 sm:mb-2">28%</div>
+                            <div class="text-sm sm:text-base text-[var(--muted)]">Reduction in readmissions</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl sm:text-3xl font-bold text-[var(--primary)] mb-1 sm:mb-2">35%</div>
+                            <div class="text-sm sm:text-base text-[var(--muted)]">Improvement in care coordination</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl sm:text-3xl font-bold text-[var(--primary)] mb-1 sm:mb-2">$8M</div>
+                            <div class="text-sm sm:text-base text-[var(--muted)]">Annual cost reduction</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-[var(--surface)] rounded-lg p-6 sm:p-8 border border-[var(--muted)]/20 hover:shadow-lg transition-shadow" data-animate>
+                    <h2 class="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4">Financial Services Firm</h2>
+                    <p class="text-base sm:text-lg text-[var(--muted)] mb-4 sm:mb-6">
+                        A mid-size financial services company needed to improve fraud detection and reduce false positives that were impacting customer experience and operational costs.
+                    </p>
+                    <h3 class="text-lg sm:text-xl font-semibold mb-2 sm:mb-3">Solution</h3>
+                    <p class="text-[var(--muted)] mb-3 sm:mb-4">
+                        We built a machine learning-based fraud detection system that analyzed transaction patterns, customer behavior, and risk indicators in real-time, with adaptive learning capabilities that continuously improved accuracy.
+                    </p>
+                    <h3 class="text-lg sm:text-xl font-semibold mb-2 sm:mb-3">Results</h3>
+                    <div class="grid md:grid-cols-3 gap-4 sm:gap-6">
+                        <div>
+                            <div class="text-2xl sm:text-3xl font-bold text-[var(--primary)] mb-1 sm:mb-2">92%</div>
+                            <div class="text-sm sm:text-base text-[var(--muted)]">Fraud detection accuracy</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl sm:text-3xl font-bold text-[var(--primary)] mb-1 sm:mb-2">65%</div>
+                            <div class="text-sm sm:text-base text-[var(--muted)]">Reduction in false positives</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl sm:text-3xl font-bold text-[var(--primary)] mb-1 sm:mb-2">40%</div>
+                            <div class="text-sm sm:text-base text-[var(--muted)]">Faster detection time</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-[var(--surface)] rounded-lg p-6 sm:p-8 border border-[var(--muted)]/20 hover:shadow-lg transition-shadow" data-animate>
+                    <h2 class="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4">Global Manufacturing Company</h2>
+                    <p class="text-base sm:text-lg text-[var(--muted)] mb-4 sm:mb-6">
+                        A multinational manufacturer with 50+ production facilities worldwide struggled with unplanned downtime, quality issues, and inefficient supply chain operations.
+                    </p>
+                    <h3 class="text-lg sm:text-xl font-semibold mb-2 sm:mb-3">Solution</h3>
+                    <p class="text-[var(--muted)] mb-3 sm:mb-4">
+                        We implemented an integrated analytics platform combining IoT sensor data, production metrics, and supply chain information. The solution included predictive maintenance models, real-time quality monitoring, and supply chain optimization algorithms.
+                    </p>
+                    <h3 class="text-lg sm:text-xl font-semibold mb-2 sm:mb-3">Results</h3>
+                    <div class="grid md:grid-cols-3 gap-4 sm:gap-6">
+                        <div>
+                            <div class="text-2xl sm:text-3xl font-bold text-[var(--primary)] mb-1 sm:mb-2">35%</div>
+                            <div class="text-sm sm:text-base text-[var(--muted)]">Reduction in downtime</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl sm:text-3xl font-bold text-[var(--primary)] mb-1 sm:mb-2">22%</div>
+                            <div class="text-sm sm:text-base text-[var(--muted)]">Improvement in quality</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl sm:text-3xl font-bold text-[var(--primary)] mb-1 sm:mb-2">$15M</div>
+                            <div class="text-sm sm:text-base text-[var(--muted)]">Annual cost savings</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-[var(--surface)] rounded-lg p-6 sm:p-8 border border-[var(--muted)]/20 hover:shadow-lg transition-shadow" data-animate>
+                    <h2 class="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4">E-commerce Platform</h2>
+                    <p class="text-base sm:text-lg text-[var(--muted)] mb-4 sm:mb-6">
+                        A fast-growing e-commerce platform needed to improve customer experience, optimize pricing strategies, and reduce cart abandonment rates.
+                    </p>
+                    <h3 class="text-lg sm:text-xl font-semibold mb-2 sm:mb-3">Solution</h3>
+                    <p class="text-[var(--muted)] mb-3 sm:mb-4">
+                        We developed a comprehensive analytics solution including customer behavior tracking, dynamic pricing models, personalized recommendation engines, and real-time A/B testing capabilities.
+                    </p>
+                    <h3 class="text-lg sm:text-xl font-semibold mb-2 sm:mb-3">Results</h3>
+                    <div class="grid md:grid-cols-3 gap-4 sm:gap-6">
+                        <div>
+                            <div class="text-2xl sm:text-3xl font-bold text-[var(--primary)] mb-1 sm:mb-2">42%</div>
+                            <div class="text-sm sm:text-base text-[var(--muted)]">Increase in conversion</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl sm:text-3xl font-bold text-[var(--primary)] mb-1 sm:mb-2">28%</div>
+                            <div class="text-sm sm:text-base text-[var(--muted)]">Reduction in cart abandonment</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl sm:text-3xl font-bold text-[var(--primary)] mb-1 sm:mb-2">18%</div>
+                            <div class="text-sm sm:text-base text-[var(--muted)]">Revenue growth</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-[var(--surface)] rounded-lg p-6 sm:p-8 border border-[var(--muted)]/20 hover:shadow-lg transition-shadow" data-animate>
+                    <h2 class="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4">Telecommunications Provider</h2>
+                    <p class="text-base sm:text-lg text-[var(--muted)] mb-4 sm:mb-6">
+                        A major telecom provider faced high customer churn rates, network optimization challenges, and needed better insights into service usage patterns.
+                    </p>
+                    <h3 class="text-lg sm:text-xl font-semibold mb-2 sm:mb-3">Solution</h3>
+                    <p class="text-[var(--muted)] mb-3 sm:mb-4">
+                        We created an advanced analytics platform that combined network performance data, customer usage patterns, and service quality metrics. The solution included churn prediction models, network optimization algorithms, and customer segmentation analytics.
+                    </p>
+                    <h3 class="text-lg sm:text-xl font-semibold mb-2 sm:mb-3">Results</h3>
+                    <div class="grid md:grid-cols-3 gap-4 sm:gap-6">
+                        <div>
+                            <div class="text-2xl sm:text-3xl font-bold text-[var(--primary)] mb-1 sm:mb-2">31%</div>
+                            <div class="text-sm sm:text-base text-[var(--muted)]">Reduction in churn</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl sm:text-3xl font-bold text-[var(--primary)] mb-1 sm:mb-2">25%</div>
+                            <div class="text-sm sm:text-base text-[var(--muted)]">Network efficiency gain</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl sm:text-3xl font-bold text-[var(--primary)] mb-1 sm:mb-2">$22M</div>
+                            <div class="text-sm sm:text-base text-[var(--muted)]">Annual revenue retention</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-12 sm:py-16 md:py-20 bg-[var(--primary)] text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center" data-animate>
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 px-4">Ready to Achieve Similar Results?</h2>
+            <p class="text-base sm:text-lg md:text-xl mb-6 sm:mb-8 opacity-90 px-4">
+                Let's discuss how we can help your organization achieve measurable outcomes.
+            </p>
+            <a href="contact.html" class="inline-block px-6 sm:px-8 py-2.5 sm:py-3 bg-white text-[var(--primary)] rounded-lg hover:opacity-90 transition-opacity font-medium text-sm sm:text-base">
+                Contact Us
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[var(--surface)] border-t border-[var(--muted)]/20 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <img src="assets/img/logo.svg" alt="Logo" class="h-8 w-8">
+                        <span class="text-xl font-semibold">DataAnalytics Pro</span>
+                    </div>
+                    <p class="text-[var(--muted)] text-sm">
+                        Enterprise data analytics solutions for forward-thinking businesses.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Services</h4>
+                    <ul class="space-y-2 text-sm text-[var(--muted)]">
+                        <li><a href="services.html" class="hover:text-[var(--primary)] transition-colors">Data Engineering</a></li>
+                        <li><a href="services.html" class="hover:text-[var(--primary)] transition-colors">Business Intelligence</a></li>
+                        <li><a href="services.html" class="hover:text-[var(--primary)] transition-colors">Predictive Analytics</a></li>
+                        <li><a href="services.html" class="hover:text-[var(--primary)] transition-colors">Data Visualization</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Industries</h4>
+                    <ul class="space-y-2 text-sm text-[var(--muted)]">
+                        <li><a href="industries.html" class="hover:text-[var(--primary)] transition-colors">Healthcare</a></li>
+                        <li><a href="industries.html" class="hover:text-[var(--primary)] transition-colors">Finance</a></li>
+                        <li><a href="industries.html" class="hover:text-[var(--primary)] transition-colors">Retail</a></li>
+                        <li><a href="industries.html" class="hover:text-[var(--primary)] transition-colors">Manufacturing</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Contact</h4>
+                    <ul class="space-y-2 text-sm text-[var(--muted)]">
+                        <li>info@dataanalyticspro.com</li>
+                        <li>+1 (555) 123-4567</li>
+                        <li><a href="contact.html" class="hover:text-[var(--primary)] transition-colors">Contact Us</a></li>
+                        <li><a href="about.html" class="hover:text-[var(--primary)] transition-colors">About Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="mt-8 pt-8 border-t border-[var(--muted)]/20 text-center text-sm text-[var(--muted)]">
+                <p>&copy; 2024 DataAnalytics Pro. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/theme.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
+

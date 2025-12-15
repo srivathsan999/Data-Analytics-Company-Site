@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - Data Analytics Company</title>
+    <meta name="description" content="Comprehensive data analytics services for enterprise clients.">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <link rel="stylesheet" href="assets/css/tailwind.css">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        'bg': 'var(--bg)',
+                        'surface': 'var(--surface)',
+                        'text': 'var(--text)',
+                        'muted': 'var(--muted)',
+                        'primary': 'var(--primary)',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-[var(--bg)] text-[var(--text)]">
+    
+    <!-- Navbar -->
+    <nav class="sticky top-0 z-50 bg-[var(--surface)] border-b border-[var(--muted)]/20 backdrop-blur-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-2 sm:space-x-3">
+                    <img src="assets/img/logo.svg" alt="Logo" class="h-7 w-7 sm:h-8 sm:w-8">
+                    <span class="text-lg sm:text-xl font-semibold logo-text">DataAnalytics Pro</span>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="index.html" class="hover:text-[var(--primary)] transition-colors">Home</a>
+                    <a href="services.html" class="text-[var(--primary)] font-medium">Services</a>
+                    <a href="industries.html" class="hover:text-[var(--primary)] transition-colors">Industries</a>
+                    <a href="case-studies.html" class="hover:text-[var(--primary)] transition-colors">Case Studies</a>
+                    <a href="about.html" class="hover:text-[var(--primary)] transition-colors">About</a>
+                    <a href="contact.html" class="hover:text-[var(--primary)] transition-colors">Contact</a>
+                </div>
+                
+                <!-- Desktop Actions -->
+                <div class="hidden lg:flex items-center space-x-4">
+                    <button id="theme-toggle" class="theme-toggle p-2 rounded-lg hover:bg-[var(--muted)]/10 transition-colors" aria-label="Toggle theme">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+                        </svg>
+                    </button>
+                    <a href="signup.html" class="px-4 py-2 border border-[var(--muted)]/30 rounded-lg hover:bg-[var(--surface)] transition-colors font-medium text-sm">
+                        Sign Up
+                    </a>
+                    <a href="contact.html" class="px-4 py-2 bg-[var(--primary)] text-white rounded-lg hover:opacity-90 transition-opacity font-medium text-sm">
+                        Request Consultation
+                    </a>
+                </div>
+                
+                <!-- Mobile/Tablet Actions -->
+                <div class="flex lg:hidden items-center space-x-2">
+                    <button id="theme-toggle-mobile" class="theme-toggle p-2 rounded-lg hover:bg-[var(--muted)]/10 transition-colors" aria-label="Toggle theme">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+                        </svg>
+                    </button>
+                    <button id="mobile-menu-toggle" class="p-2 rounded-lg hover:bg-[var(--muted)]/10 transition-colors" aria-label="Toggle menu">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="mobile-menu lg:hidden">
+                <div class="py-4 space-y-3 border-t border-[var(--muted)]/20">
+                    <a href="index.html" class="block px-4 py-2 hover:text-[var(--primary)] transition-colors">Home</a>
+                    <a href="services.html" class="block px-4 py-2 text-[var(--primary)] font-medium">Services</a>
+                    <a href="industries.html" class="block px-4 py-2 hover:text-[var(--primary)] transition-colors">Industries</a>
+                    <a href="case-studies.html" class="block px-4 py-2 hover:text-[var(--primary)] transition-colors">Case Studies</a>
+                    <a href="about.html" class="block px-4 py-2 hover:text-[var(--primary)] transition-colors">About</a>
+                    <a href="contact.html" class="block px-4 py-2 hover:text-[var(--primary)] transition-colors">Contact</a>
+                    <div class="pt-2 space-y-2 px-4">
+                        <a href="signup.html" class="block w-[70%] mx-auto px-4 py-2 text-center border border-[var(--muted)]/30 rounded-lg hover:bg-[var(--surface)] transition-colors font-medium">
+                            Sign Up
+                        </a>
+                        <a href="contact.html" class="block w-[70%] mx-auto px-4 py-2 text-center bg-[var(--primary)] text-white rounded-lg hover:opacity-90 transition-opacity font-medium">
+                            Request Consultation
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="py-12 sm:py-16 md:py-20 bg-[var(--surface)]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center" data-animate>
+                <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4">Our Services</h1>
+                <p class="text-base sm:text-lg md:text-xl text-[var(--muted)] max-w-2xl mx-auto px-4">
+                    Comprehensive analytics solutions designed to drive your business forward
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Content -->
+    <section class="py-12 sm:py-16 md:py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="mb-8 sm:mb-12 md:mb-16" data-animate>
+                <h2 class="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6">Data Engineering</h2>
+                <p class="text-base sm:text-lg text-[var(--muted)] mb-3 sm:mb-4">
+                    Build robust, scalable data infrastructure that supports your analytics initiatives at enterprise scale. Our data engineering services transform raw data into reliable, accessible, and actionable information assets.
+                </p>
+                <div class="mb-4">
+                    <h3 class="text-xl font-semibold mb-3">Core Capabilities</h3>
+                    <ul class="list-disc list-inside space-y-2 text-[var(--muted)] ml-4 mb-4">
+                        <li>Data pipeline design and implementation</li>
+                        <li>ETL/ELT process optimization</li>
+                        <li>Data warehouse and lake architecture</li>
+                        <li>Real-time data streaming solutions</li>
+                        <li>Data quality and governance frameworks</li>
+                        <li>Cloud data platform migration</li>
+                        <li>Data integration and API development</li>
+                        <li>Performance tuning and optimization</li>
+                    </ul>
+                </div>
+                <div class="bg-[var(--surface)] rounded-lg p-6 border border-[var(--muted)]/20">
+                    <h3 class="text-lg font-semibold mb-2">Key Benefits</h3>
+                    <ul class="space-y-2 text-[var(--muted)]">
+                        <li>• Reduced data processing time by up to 70%</li>
+                        <li>• Improved data quality and reliability</li>
+                        <li>• Scalable architecture supporting millions of transactions</li>
+                        <li>• Real-time data availability for critical business decisions</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mb-8 sm:mb-12 md:mb-16" data-animate>
+                <h2 class="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6">Business Intelligence</h2>
+                <p class="text-base sm:text-lg text-[var(--muted)] mb-3 sm:mb-4">
+                    Transform raw data into actionable insights with powerful visualization and reporting tools. Our BI solutions empower decision-makers at all levels with timely, accurate, and relevant information.
+                </p>
+                <div class="mb-4">
+                    <h3 class="text-xl font-semibold mb-3">Core Capabilities</h3>
+                    <ul class="list-disc list-inside space-y-2 text-[var(--muted)] ml-4 mb-4">
+                        <li>Interactive dashboard development</li>
+                        <li>Custom reporting solutions</li>
+                        <li>Self-service analytics platforms</li>
+                        <li>KPI tracking and monitoring</li>
+                        <li>Executive reporting and presentations</li>
+                        <li>Mobile BI applications</li>
+                        <li>Automated report distribution</li>
+                        <li>Data storytelling and visualization best practices</li>
+                    </ul>
+                </div>
+                <div class="bg-[var(--surface)] rounded-lg p-6 border border-[var(--muted)]/20">
+                    <h3 class="text-lg font-semibold mb-2">Key Benefits</h3>
+                    <ul class="space-y-2 text-[var(--muted)]">
+                        <li>• Faster decision-making with real-time insights</li>
+                        <li>• Increased user adoption through intuitive interfaces</li>
+                        <li>• Reduced reporting time by 80%</li>
+                        <li>• Improved data-driven culture across organization</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mb-8 sm:mb-12 md:mb-16" data-animate>
+                <h2 class="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6">Predictive Analytics</h2>
+                <p class="text-base sm:text-lg text-[var(--muted)] mb-3 sm:mb-4">
+                    Leverage advanced machine learning and statistical models to forecast trends, identify opportunities, and optimize business outcomes. Our predictive analytics solutions help you stay ahead of the curve.
+                </p>
+                <div class="mb-4">
+                    <h3 class="text-xl font-semibold mb-3">Core Capabilities</h3>
+                    <ul class="list-disc list-inside space-y-2 text-[var(--muted)] ml-4 mb-4">
+                        <li>Machine learning model development</li>
+                        <li>Forecasting and trend analysis</li>
+                        <li>Risk assessment and mitigation</li>
+                        <li>Customer behavior prediction</li>
+                        <li>Demand forecasting and optimization</li>
+                        <li>Churn prediction and prevention</li>
+                        <li>Price optimization models</li>
+                        <li>Anomaly detection and alerting</li>
+                    </ul>
+                </div>
+                <div class="bg-[var(--surface)] rounded-lg p-6 border border-[var(--muted)]/20">
+                    <h3 class="text-lg font-semibold mb-2">Key Benefits</h3>
+                    <ul class="space-y-2 text-[var(--muted)]">
+                        <li>• Proactive decision-making with future insights</li>
+                        <li>• Reduced operational risks through early warning systems</li>
+                        <li>• Increased revenue through optimized pricing and demand</li>
+                        <li>• Improved customer retention with predictive churn models</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mb-8 sm:mb-12 md:mb-16" data-animate>
+                <h2 class="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6">Data Visualization</h2>
+                <p class="text-base sm:text-lg text-[var(--muted)] mb-3 sm:mb-4">
+                    Create compelling visual representations of your data that tell a clear, actionable story. Our visualization services transform complex datasets into intuitive, engaging visual narratives that drive understanding and action.
+                </p>
+                <div class="mb-4">
+                    <h3 class="text-xl font-semibold mb-3">Core Capabilities</h3>
+                    <ul class="list-disc list-inside space-y-2 text-[var(--muted)] ml-4 mb-4">
+                        <li>Custom chart and graph design</li>
+                        <li>Interactive data exploration tools</li>
+                        <li>Geospatial data visualization</li>
+                        <li>Time-series analysis displays</li>
+                        <li>Presentation-ready visualizations</li>
+                        <li>3D and advanced visualizations</li>
+                        <li>Infographic design and development</li>
+                        <li>Data animation and storytelling</li>
+                    </ul>
+                </div>
+                <div class="bg-[var(--surface)] rounded-lg p-6 border border-[var(--muted)]/20">
+                    <h3 class="text-lg font-semibold mb-2">Key Benefits</h3>
+                    <ul class="space-y-2 text-[var(--muted)]">
+                        <li>• Improved data comprehension and engagement</li>
+                        <li>• Faster identification of trends and patterns</li>
+                        <li>• Enhanced presentation impact for stakeholders</li>
+                        <li>• Better communication of complex insights</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mb-8 sm:mb-12 md:mb-16" data-animate>
+                <h2 class="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6">Data Strategy & Consulting</h2>
+                <p class="text-base sm:text-lg text-[var(--muted)] mb-3 sm:mb-4">
+                    Develop a comprehensive data strategy aligned with your business objectives. Our consulting services help organizations build a data-driven culture and establish the foundation for analytics success.
+                </p>
+                <div class="mb-4">
+                    <h3 class="text-xl font-semibold mb-3">Core Capabilities</h3>
+                    <ul class="list-disc list-inside space-y-2 text-[var(--muted)] ml-4 mb-4">
+                        <li>Data maturity assessment</li>
+                        <li>Analytics roadmap development</li>
+                        <li>Technology stack recommendations</li>
+                        <li>Data governance framework design</li>
+                        <li>Change management and training</li>
+                        <li>ROI analysis and business case development</li>
+                        <li>Data architecture planning</li>
+                        <li>Compliance and security consulting</li>
+                    </ul>
+                </div>
+                <div class="bg-[var(--surface)] rounded-lg p-6 border border-[var(--muted)]/20">
+                    <h3 class="text-lg font-semibold mb-2">Key Benefits</h3>
+                    <ul class="space-y-2 text-[var(--muted)]">
+                        <li>• Clear roadmap for data transformation</li>
+                        <li>• Optimized technology investments</li>
+                        <li>• Established data governance and compliance</li>
+                        <li>• Accelerated time-to-value for analytics initiatives</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mb-8 sm:mb-12 md:mb-16" data-animate>
+                <h2 class="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6">Advanced Analytics & AI</h2>
+                <p class="text-base sm:text-lg text-[var(--muted)] mb-3 sm:mb-4">
+                    Harness the power of artificial intelligence and advanced analytics to unlock new opportunities and drive innovation. Our AI solutions enable intelligent automation and deep insights.
+                </p>
+                <div class="mb-4">
+                    <h3 class="text-xl font-semibold mb-3">Core Capabilities</h3>
+                    <ul class="list-disc list-inside space-y-2 text-[var(--muted)] ml-4 mb-4">
+                        <li>Natural language processing and text analytics</li>
+                        <li>Computer vision and image recognition</li>
+                        <li>Recommendation engine development</li>
+                        <li>Deep learning model implementation</li>
+                        <li>AI-powered automation solutions</li>
+                        <li>Sentiment analysis and social media analytics</li>
+                        <li>Chatbot and conversational AI development</li>
+                        <li>Model deployment and MLOps</li>
+                    </ul>
+                </div>
+                <div class="bg-[var(--surface)] rounded-lg p-6 border border-[var(--muted)]/20">
+                    <h3 class="text-lg font-semibold mb-2">Key Benefits</h3>
+                    <ul class="space-y-2 text-[var(--muted)]">
+                        <li>• Automated decision-making and processes</li>
+                        <li>• Enhanced customer experiences through personalization</li>
+                        <li>• Discovery of hidden patterns in unstructured data</li>
+                        <li>• Competitive advantage through AI innovation</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-[var(--primary)] text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center" data-animate>
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">Ready to Get Started?</h2>
+            <p class="text-xl mb-8 opacity-90">
+                Contact us to discuss how our services can help your business.
+            </p>
+            <a href="contact.html" class="inline-block px-8 py-3 bg-white text-[var(--primary)] rounded-lg hover:opacity-90 transition-opacity font-medium">
+                Contact Us
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[var(--surface)] border-t border-[var(--muted)]/20 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <img src="assets/img/logo.svg" alt="Logo" class="h-8 w-8">
+                        <span class="text-xl font-semibold">DataAnalytics Pro</span>
+                    </div>
+                    <p class="text-[var(--muted)] text-sm">
+                        Enterprise data analytics solutions for forward-thinking businesses.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Services</h4>
+                    <ul class="space-y-2 text-sm text-[var(--muted)]">
+                        <li><a href="services.html" class="hover:text-[var(--primary)] transition-colors">Data Engineering</a></li>
+                        <li><a href="services.html" class="hover:text-[var(--primary)] transition-colors">Business Intelligence</a></li>
+                        <li><a href="services.html" class="hover:text-[var(--primary)] transition-colors">Predictive Analytics</a></li>
+                        <li><a href="services.html" class="hover:text-[var(--primary)] transition-colors">Data Visualization</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Industries</h4>
+                    <ul class="space-y-2 text-sm text-[var(--muted)]">
+                        <li><a href="industries.html" class="hover:text-[var(--primary)] transition-colors">Healthcare</a></li>
+                        <li><a href="industries.html" class="hover:text-[var(--primary)] transition-colors">Finance</a></li>
+                        <li><a href="industries.html" class="hover:text-[var(--primary)] transition-colors">Retail</a></li>
+                        <li><a href="industries.html" class="hover:text-[var(--primary)] transition-colors">Manufacturing</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Contact</h4>
+                    <ul class="space-y-2 text-sm text-[var(--muted)]">
+                        <li>info@dataanalyticspro.com</li>
+                        <li>+1 (555) 123-4567</li>
+                        <li><a href="contact.html" class="hover:text-[var(--primary)] transition-colors">Contact Us</a></li>
+                        <li><a href="about.html" class="hover:text-[var(--primary)] transition-colors">About Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="mt-8 pt-8 border-t border-[var(--muted)]/20 text-center text-sm text-[var(--muted)]">
+                <p>&copy; 2024 DataAnalytics Pro. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/theme.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
+

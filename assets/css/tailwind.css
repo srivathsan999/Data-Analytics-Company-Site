@@ -1,0 +1,269 @@
+/* Tailwind CSS will be loaded via CDN, this file contains custom CSS variables and overrides */
+
+:root {
+  --bg: #ffffff;
+  --surface: #f8fafc;
+  --text: #0f172a;
+  --muted: #64748b;
+  --primary: #2563eb;
+}
+
+.dark {
+  --bg: #0b0f1a;
+  --surface: #12182a;
+  --text: #e5e7eb;
+  --muted: #9ca3af;
+  --primary: #00e5ff;
+}
+
+html {
+  background-color: var(--bg);
+  color: var(--text);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
+/* Chart container */
+.chart-container {
+  position: relative;
+  height: 400px;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .chart-container {
+    height: 300px;
+  }
+}
+
+/* Mobile and Tablet Responsive Fixes */
+@media (max-width: 1024px) {
+  /* Adjust section padding for tablets */
+  section {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Mobile section padding */
+  section {
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+  }
+  
+  /* Mobile text adjustments */
+  h1 {
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+  
+  h2 {
+    font-size: 1.75rem;
+  }
+  
+  /* Mobile button adjustments */
+  .mobile-btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+  }
+  
+  /* Mobile logo text */
+  .logo-text {
+    font-size: 1rem;
+  }
+  
+  /* Analytics visualization mobile */
+  .analytics-visualization svg {
+    max-height: 300px !important;
+  }
+}
+
+@media (max-width: 640px) {
+  /* Extra small mobile */
+  h1 {
+    font-size: 1.75rem;
+  }
+  
+  .logo-text {
+    display: none;
+  }
+  
+  /* Stack buttons vertically on very small screens */
+  .mobile-nav-buttons {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .mobile-nav-buttons a {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* Mobile menu animation */
+.mobile-menu {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+}
+
+.mobile-menu.open {
+  max-height: 500px;
+  transition: max-height 0.3s ease-in;
+}
+
+/* Animated Data Analytics Visualization */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes drawLine {
+  from {
+    stroke-dashoffset: 1000;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    opacity: 0.5;
+    filter: drop-shadow(0 0 5px currentColor);
+  }
+  50% {
+    opacity: 1;
+    filter: drop-shadow(0 0 15px currentColor);
+  }
+}
+
+.analytics-visualization {
+  animation: slideUp 1s ease-out;
+}
+
+.analytics-visualization .float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.analytics-visualization .float-delay-1 {
+  animation: float 3s ease-in-out infinite 0.5s;
+}
+
+.analytics-visualization .float-delay-2 {
+  animation: float 3s ease-in-out infinite 1s;
+}
+
+.analytics-visualization .pulse {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.analytics-visualization .pulse-delay {
+  animation: pulse 2s ease-in-out infinite 1s;
+}
+
+.analytics-visualization .draw-line {
+  stroke-dasharray: 1000;
+  animation: drawLine 2s ease-in-out infinite;
+}
+
+.analytics-visualization .glow {
+  animation: glow 2s ease-in-out infinite;
+}
+
+/* Metric Card Hover Effects */
+.metric-card {
+  cursor: pointer;
+}
+
+.metric-card:hover {
+  transform: translateY(-4px);
+}
+
+.metric-card:hover .text-\[var\(--primary\)\] {
+  color: var(--primary);
+  transform: scale(1.05);
+  display: inline-block;
+}
+
+/* Hero Button Hover Effects */
+.hero-btn-primary {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.hero-btn-primary:hover::before {
+  left: 100%;
+}
+
+.hero-btn-secondary {
+  position: relative;
+}
+
+.hero-btn-secondary:hover {
+  color: var(--primary);
+}
+
