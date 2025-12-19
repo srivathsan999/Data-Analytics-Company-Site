@@ -110,10 +110,6 @@ html {
     font-size: 1.75rem;
   }
   
-  .logo-text {
-    display: none;
-  }
-  
   /* Stack buttons vertically on very small screens */
   .mobile-nav-buttons {
     flex-direction: column;

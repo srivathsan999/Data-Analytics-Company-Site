@@ -6,6 +6,9 @@
     <title>Industries - Data Analytics Company</title>
     <meta name="description" content="Data analytics solutions for various industries.">
     
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/img/logo.svg">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
     <link rel="stylesheet" href="assets/css/tailwind.css">
@@ -55,7 +58,10 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
                         </svg>
                     </button>
-                    <a href="signup.html" class="px-4 py-2 border border-[var(--muted)]/30 rounded-lg hover:bg-[var(--surface)] transition-colors font-medium text-sm">
+                    <a href="login.html" class="nav-btn-login px-4 py-2 border border-[var(--muted)]/30 rounded-lg font-medium text-sm transition-all duration-300 hover:bg-[var(--surface)] hover:border-[var(--primary)]/50 hover:shadow-md hover:scale-105 hover:-translate-y-0.5">
+                        Login
+                    </a>
+                    <a href="signup.html" class="nav-btn-signup px-4 py-2 border border-[var(--muted)]/30 rounded-lg font-medium text-sm transition-all duration-300 hover:bg-[var(--surface)] hover:border-[var(--primary)]/50 hover:shadow-md hover:scale-105 hover:-translate-y-0.5">
                         Sign Up
                     </a>
                     <a href="contact.html" class="px-4 py-2 bg-[var(--primary)] text-white rounded-lg hover:opacity-90 transition-opacity font-medium text-sm">
@@ -88,7 +94,10 @@
                     <a href="about.html" class="block px-4 py-2 hover:text-[var(--primary)] transition-colors">About</a>
                     <a href="contact.html" class="block px-4 py-2 hover:text-[var(--primary)] transition-colors">Contact</a>
                     <div class="pt-2 space-y-2 px-4">
-                        <a href="signup.html" class="block w-[70%] mx-auto px-4 py-2 text-center border border-[var(--muted)]/30 rounded-lg hover:bg-[var(--surface)] transition-colors font-medium">
+                        <a href="login.html" class="block w-[70%] mx-auto px-4 py-2 text-center border border-[var(--muted)]/30 rounded-lg font-medium transition-all duration-300 hover:bg-[var(--surface)] hover:border-[var(--primary)]/50 hover:shadow-md hover:scale-105">
+                            Login
+                        </a>
+                        <a href="signup.html" class="block w-[70%] mx-auto px-4 py-2 text-center border border-[var(--muted)]/30 rounded-lg font-medium transition-all duration-300 hover:bg-[var(--surface)] hover:border-[var(--primary)]/50 hover:shadow-md hover:scale-105">
                             Sign Up
                         </a>
                         <a href="contact.html" class="block w-[70%] mx-auto px-4 py-2 text-center bg-[var(--primary)] text-white rounded-lg hover:opacity-90 transition-opacity font-medium">
@@ -118,8 +127,8 @@
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
                 
                 <div class="bg-[var(--surface)] rounded-lg p-6 sm:p-8 border border-[var(--muted)]/20 h-full hover:shadow-lg transition-shadow" data-animate>
-                    <div class="text-4xl mb-4">🏥</div>
-                    <h3 class="text-xl sm:text-2xl font-semibold mb-3">Healthcare</h3>
+                    <div class="text-4xl mb-4 text-center">🏥</div>
+                    <h3 class="text-xl sm:text-2xl font-semibold mb-3 text-center">Healthcare</h3>
                     <p class="text-[var(--muted)] mb-4">
                         Patient outcome analytics, operational efficiency, and predictive health modeling to improve care delivery and reduce costs.
                     </p>
@@ -135,8 +144,8 @@
                 </div>
 
                 <div class="bg-[var(--surface)] rounded-lg p-6 sm:p-8 border border-[var(--muted)]/20 h-full hover:shadow-lg transition-shadow" data-animate>
-                    <div class="text-4xl mb-4">💼</div>
-                    <h3 class="text-xl sm:text-2xl font-semibold mb-3">Finance</h3>
+                    <div class="text-4xl mb-4 text-center">💼</div>
+                    <h3 class="text-xl sm:text-2xl font-semibold mb-3 text-center">Finance</h3>
                     <p class="text-[var(--muted)] mb-4">
                         Risk assessment, fraud detection, and portfolio optimization using advanced analytics and machine learning models.
                     </p>
@@ -152,8 +161,8 @@
                 </div>
 
                 <div class="bg-[var(--surface)] rounded-lg p-6 sm:p-8 border border-[var(--muted)]/20 h-full hover:shadow-lg transition-shadow" data-animate>
-                    <div class="text-4xl mb-4">🛒</div>
-                    <h3 class="text-xl sm:text-2xl font-semibold mb-3">Retail</h3>
+                    <div class="text-4xl mb-4 text-center">🛒</div>
+                    <h3 class="text-xl sm:text-2xl font-semibold mb-3 text-center">Retail</h3>
                     <p class="text-[var(--muted)] mb-4">
                         Customer behavior analysis, inventory optimization, and demand forecasting to drive sales and reduce waste.
                     </p>
@@ -169,8 +178,8 @@
                 </div>
 
                 <div class="bg-[var(--surface)] rounded-lg p-6 sm:p-8 border border-[var(--muted)]/20 h-full hover:shadow-lg transition-shadow" data-animate>
-                    <div class="text-4xl mb-4">🏭</div>
-                    <h3 class="text-xl sm:text-2xl font-semibold mb-3">Manufacturing</h3>
+                    <div class="text-4xl mb-4 text-center">🏭</div>
+                    <h3 class="text-xl sm:text-2xl font-semibold mb-3 text-center">Manufacturing</h3>
                     <p class="text-[var(--muted)] mb-4">
                         Predictive maintenance, quality control analytics, and supply chain optimization for operational excellence.
                     </p>
@@ -186,8 +195,8 @@
                 </div>
 
                 <div class="bg-[var(--surface)] rounded-lg p-6 sm:p-8 border border-[var(--muted)]/20 h-full hover:shadow-lg transition-shadow" data-animate>
-                    <div class="text-4xl mb-4">🚚</div>
-                    <h3 class="text-xl sm:text-2xl font-semibold mb-3">Logistics</h3>
+                    <div class="text-4xl mb-4 text-center">🚚</div>
+                    <h3 class="text-xl sm:text-2xl font-semibold mb-3 text-center">Logistics</h3>
                     <p class="text-[var(--muted)] mb-4">
                         Route optimization, fleet management analytics, and delivery performance tracking to improve efficiency.
                     </p>
@@ -203,8 +212,8 @@
                 </div>
 
                 <div class="bg-[var(--surface)] rounded-lg p-6 sm:p-8 border border-[var(--muted)]/20 h-full hover:shadow-lg transition-shadow" data-animate>
-                    <div class="text-4xl mb-4">🎓</div>
-                    <h3 class="text-xl sm:text-2xl font-semibold mb-3">Education</h3>
+                    <div class="text-4xl mb-4 text-center">🎓</div>
+                    <h3 class="text-xl sm:text-2xl font-semibold mb-3 text-center">Education</h3>
                     <p class="text-[var(--muted)] mb-4">
                         Student performance analytics, enrollment forecasting, and institutional effectiveness measurement.
                     </p>
@@ -220,8 +229,8 @@
                 </div>
 
                 <div class="bg-[var(--surface)] rounded-lg p-6 sm:p-8 border border-[var(--muted)]/20 h-full hover:shadow-lg transition-shadow" data-animate>
-                    <div class="text-4xl mb-4">⚡</div>
-                    <h3 class="text-xl sm:text-2xl font-semibold mb-3">Energy & Utilities</h3>
+                    <div class="text-4xl mb-4 text-center">⚡</div>
+                    <h3 class="text-xl sm:text-2xl font-semibold mb-3 text-center">Energy & Utilities</h3>
                     <p class="text-[var(--muted)] mb-4">
                         Smart grid analytics, consumption forecasting, and asset management to optimize operations and reduce costs.
                     </p>
@@ -237,8 +246,8 @@
                 </div>
 
                 <div class="bg-[var(--surface)] rounded-lg p-6 sm:p-8 border border-[var(--muted)]/20 h-full hover:shadow-lg transition-shadow" data-animate>
-                    <div class="text-4xl mb-4">🏢</div>
-                    <h3 class="text-xl sm:text-2xl font-semibold mb-3">Real Estate</h3>
+                    <div class="text-4xl mb-4 text-center">🏢</div>
+                    <h3 class="text-xl sm:text-2xl font-semibold mb-3 text-center">Real Estate</h3>
                     <p class="text-[var(--muted)] mb-4">
                         Property valuation analytics, market trend analysis, and investment optimization for informed decision-making.
                     </p>
@@ -254,8 +263,8 @@
                 </div>
 
                 <div class="bg-[var(--surface)] rounded-lg p-6 sm:p-8 border border-[var(--muted)]/20 h-full hover:shadow-lg transition-shadow" data-animate>
-                    <div class="text-4xl mb-4">🎮</div>
-                    <h3 class="text-xl sm:text-2xl font-semibold mb-3">Technology & Media</h3>
+                    <div class="text-4xl mb-4 text-center">🎮</div>
+                    <h3 class="text-xl sm:text-2xl font-semibold mb-3 text-center">Technology & Media</h3>
                     <p class="text-[var(--muted)] mb-4">
                         User behavior analytics, content optimization, and platform performance monitoring to enhance engagement.
                     </p>
@@ -333,7 +342,7 @@
             </div>
             
             <div class="mt-8 pt-8 border-t border-[var(--muted)]/20 text-center text-sm text-[var(--muted)]">
-                <p>&copy; 2024 DataAnalytics Pro. All rights reserved.</p>
+                <p>&copy; 2025 DataAnalytics Pro. All rights reserved.</p>
             </div>
         </div>
     </footer>

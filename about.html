@@ -6,6 +6,9 @@
     <title>About Us - Data Analytics Company</title>
     <meta name="description" content="Learn about our company, mission, and values.">
     
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/img/logo.svg">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
     <link rel="stylesheet" href="assets/css/tailwind.css">
@@ -33,12 +36,13 @@
     <nav class="sticky top-0 z-50 bg-[var(--surface)] border-b border-[var(--muted)]/20 backdrop-blur-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
-                <div class="flex items-center space-x-3">
-                    <img src="assets/img/logo.svg" alt="Logo" class="h-8 w-8">
-                    <span class="text-xl font-semibold">DataAnalytics Pro</span>
+                <div class="flex items-center space-x-2 sm:space-x-3">
+                    <img src="assets/img/logo.svg" alt="Logo" class="h-7 w-7 sm:h-8 sm:w-8">
+                    <span class="text-lg sm:text-xl font-semibold logo-text">DataAnalytics Pro</span>
                 </div>
                 
-                <div class="hidden md:flex items-center space-x-8">
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex items-center space-x-8">
                     <a href="index.html" class="hover:text-[var(--primary)] transition-colors">Home</a>
                     <a href="services.html" class="hover:text-[var(--primary)] transition-colors">Services</a>
                     <a href="industries.html" class="hover:text-[var(--primary)] transition-colors">Industries</a>
@@ -47,18 +51,59 @@
                     <a href="contact.html" class="hover:text-[var(--primary)] transition-colors">Contact</a>
                 </div>
                 
-                <div class="flex items-center space-x-4">
+                <!-- Desktop Actions -->
+                <div class="hidden lg:flex items-center space-x-4">
                     <button id="theme-toggle" class="theme-toggle p-2 rounded-lg hover:bg-[var(--muted)]/10 transition-colors" aria-label="Toggle theme">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
                         </svg>
                     </button>
-                    <a href="signup.html" class="px-4 py-2 border border-[var(--muted)]/30 rounded-lg hover:bg-[var(--surface)] transition-colors font-medium">
+                    <a href="login.html" class="nav-btn-login px-4 py-2 border border-[var(--muted)]/30 rounded-lg font-medium text-sm transition-all duration-300 hover:bg-[var(--surface)] hover:border-[var(--primary)]/50 hover:shadow-md hover:scale-105 hover:-translate-y-0.5">
+                        Login
+                    </a>
+                    <a href="signup.html" class="nav-btn-signup px-4 py-2 border border-[var(--muted)]/30 rounded-lg font-medium text-sm transition-all duration-300 hover:bg-[var(--surface)] hover:border-[var(--primary)]/50 hover:shadow-md hover:scale-105 hover:-translate-y-0.5">
                         Sign Up
                     </a>
-                    <a href="contact.html" class="px-4 py-2 bg-[var(--primary)] text-white rounded-lg hover:opacity-90 transition-opacity font-medium">
+                    <a href="contact.html" class="px-4 py-2 bg-[var(--primary)] text-white rounded-lg hover:opacity-90 transition-opacity font-medium text-sm">
                         Request Consultation
                     </a>
+                </div>
+                
+                <!-- Mobile/Tablet Actions -->
+                <div class="flex lg:hidden items-center space-x-2">
+                    <button id="theme-toggle-mobile" class="theme-toggle p-2 rounded-lg hover:bg-[var(--muted)]/10 transition-colors" aria-label="Toggle theme">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+                        </svg>
+                    </button>
+                    <button id="mobile-menu-toggle" class="p-2 rounded-lg hover:bg-[var(--muted)]/10 transition-colors" aria-label="Toggle menu">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="mobile-menu lg:hidden">
+                <div class="py-4 space-y-3 border-t border-[var(--muted)]/20">
+                    <a href="index.html" class="block px-4 py-2 hover:text-[var(--primary)] transition-colors">Home</a>
+                    <a href="services.html" class="block px-4 py-2 hover:text-[var(--primary)] transition-colors">Services</a>
+                    <a href="industries.html" class="block px-4 py-2 hover:text-[var(--primary)] transition-colors">Industries</a>
+                    <a href="case-studies.html" class="block px-4 py-2 hover:text-[var(--primary)] transition-colors">Case Studies</a>
+                    <a href="about.html" class="block px-4 py-2 text-[var(--primary)] font-medium">About</a>
+                    <a href="contact.html" class="block px-4 py-2 hover:text-[var(--primary)] transition-colors">Contact</a>
+                    <div class="pt-2 space-y-2 px-4">
+                        <a href="login.html" class="block w-[70%] mx-auto px-4 py-2 text-center border border-[var(--muted)]/30 rounded-lg font-medium transition-all duration-300 hover:bg-[var(--surface)] hover:border-[var(--primary)]/50 hover:shadow-md hover:scale-105">
+                            Login
+                        </a>
+                        <a href="signup.html" class="block w-[70%] mx-auto px-4 py-2 text-center border border-[var(--muted)]/30 rounded-lg font-medium transition-all duration-300 hover:bg-[var(--surface)] hover:border-[var(--primary)]/50 hover:shadow-md hover:scale-105">
+                            Sign Up
+                        </a>
+                        <a href="contact.html" class="block w-[70%] mx-auto px-4 py-2 text-center bg-[var(--primary)] text-white rounded-lg hover:opacity-90 transition-opacity font-medium">
+                            Request Consultation
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -80,7 +125,7 @@
     <section class="py-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="max-w-3xl mx-auto" data-animate>
-                <h2 class="text-3xl font-bold mb-6">Our Story</h2>
+                <h2 class="text-3xl font-bold mb-6 text-center">Our Story</h2>
                 <p class="text-lg text-[var(--muted)] mb-4">
                     Founded in 2009, DataAnalytics Pro has been at the forefront of enterprise data analytics for over 15 years. We started with a simple mission: to help businesses unlock the true value of their data.
                 </p>
@@ -98,7 +143,7 @@
     <section class="py-20 bg-[var(--surface)]">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="max-w-3xl mx-auto" data-animate>
-                <h2 class="text-3xl font-bold mb-6">Our Mission</h2>
+                <h2 class="text-3xl font-bold mb-6 text-center">Our Mission</h2>
                 <p class="text-lg text-[var(--muted)] mb-4">
                     To empower organizations with data-driven insights that transform decision-making, optimize operations, and create sustainable competitive advantages.
                 </p>
@@ -281,7 +326,7 @@
             </div>
             
             <div class="mt-8 pt-8 border-t border-[var(--muted)]/20 text-center text-sm text-[var(--muted)]">
-                <p>&copy; 2024 DataAnalytics Pro. All rights reserved.</p>
+                <p>&copy; 2025 DataAnalytics Pro. All rights reserved.</p>
             </div>
         </div>
     </footer>
