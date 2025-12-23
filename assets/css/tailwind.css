@@ -130,8 +130,21 @@ html {
 }
 
 .mobile-menu.open {
-  max-height: 500px;
+  max-height: 800px;
   transition: max-height 0.3s ease-in;
+  overflow-y: auto;
+}
+
+/* Ensure mobile menu buttons are fully visible */
+@media (max-width: 1024px) {
+  .mobile-menu .pt-2 {
+    padding-bottom: 1rem;
+  }
+  
+  .mobile-menu a {
+    word-wrap: break-word;
+    white-space: normal;
+  }
 }
 
 /* Animated Data Analytics Visualization */
