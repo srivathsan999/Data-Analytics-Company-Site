@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Data Analytics Company</title>
+    <meta name="description" content="Admin dashboard for DataAnalytics Pro">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/img/logo.svg">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <link rel="stylesheet" href="assets/css/tailwind.css">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        'bg': 'var(--bg)',
+                        'surface': 'var(--surface)',
+                        'text': 'var(--text)',
+                        'muted': 'var(--muted)',
+                        'primary': 'var(--primary)',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-[var(--bg)] text-[var(--text)]">
+    
+    <!-- Navbar -->
+    <nav class="sticky top-0 z-50 bg-[var(--surface)] border-b border-[var(--muted)]/20 backdrop-blur-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <a href="index.html" class="flex items-center space-x-2 sm:space-x-3 hover:opacity-80 transition-opacity">
+                    <img src="assets/img/logo.svg" alt="Logo" class="h-7 w-7 sm:h-8 sm:w-8">
+                    <span class="text-lg sm:text-xl font-semibold logo-text">DataAnalytics Pro</span>
+                </a>
+                
+                <!-- Desktop Actions -->
+                <div class="hidden lg:flex items-center space-x-4">
+                    <button id="theme-toggle" class="theme-toggle p-2 rounded-lg hover:bg-[var(--muted)]/10 transition-colors" aria-label="Toggle theme">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+                        </svg>
+                    </button>
+                    <div class="flex items-center space-x-3 px-4 py-2 bg-[var(--primary)]/10 rounded-lg">
+                        <div class="w-8 h-8 rounded-full bg-[var(--primary)] flex items-center justify-center text-white font-semibold text-sm">
+                            A
+                        </div>
+                        <span class="text-sm font-medium">Admin User</span>
+                    </div>
+                    <a href="index.html" class="px-4 py-2 text-sm text-[var(--muted)] hover:text-[var(--primary)] transition-colors">
+                        Logout
+                    </a>
+                </div>
+                
+                <!-- Mobile Actions -->
+                <div class="flex lg:hidden items-center space-x-2">
+                    <button id="theme-toggle-mobile" class="theme-toggle p-2 rounded-lg hover:bg-[var(--muted)]/10 transition-colors" aria-label="Toggle theme">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+                        </svg>
+                    </button>
+                    <div class="w-8 h-8 rounded-full bg-[var(--primary)] flex items-center justify-center text-white font-semibold text-sm">
+                        A
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Dashboard Content -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        
+        <!-- Page Header -->
+        <div class="mb-8" data-animate>
+            <h1 class="text-3xl sm:text-4xl font-bold mb-2">Dashboard Overview</h1>
+            <p class="text-[var(--muted)]">Welcome back! Here's what's happening with your analytics platform.</p>
+        </div>
+
+        <!-- Metrics Cards -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            <div class="bg-[var(--surface)] rounded-xl p-6 border border-[var(--muted)]/20 hover:shadow-lg transition-shadow" data-animate>
+                <div class="flex items-center justify-between mb-4">
+                    <div class="w-12 h-12 rounded-lg bg-[var(--primary)]/10 flex items-center justify-center">
+                        <svg class="w-6 h-6 text-[var(--primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                        </svg>
+                    </div>
+                    <span class="text-xs px-2 py-1 rounded-full bg-green-500/10 text-green-500 font-semibold">+12%</span>
+                </div>
+                <h3 class="text-2xl font-bold mb-1">2,847</h3>
+                <p class="text-sm text-[var(--muted)]">Total Users</p>
+            </div>
+
+            <div class="bg-[var(--surface)] rounded-xl p-6 border border-[var(--muted)]/20 hover:shadow-lg transition-shadow" data-animate>
+                <div class="flex items-center justify-between mb-4">
+                    <div class="w-12 h-12 rounded-lg bg-[var(--primary)]/10 flex items-center justify-center">
+                        <svg class="w-6 h-6 text-[var(--primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                        </svg>
+                    </div>
+                    <span class="text-xs px-2 py-1 rounded-full bg-blue-500/10 text-blue-500 font-semibold">+8%</span>
+                </div>
+                <h3 class="text-2xl font-bold mb-1">156</h3>
+                <p class="text-sm text-[var(--muted)]">Active Projects</p>
+            </div>
+
+            <div class="bg-[var(--surface)] rounded-xl p-6 border border-[var(--muted)]/20 hover:shadow-lg transition-shadow" data-animate>
+                <div class="flex items-center justify-between mb-4">
+                    <div class="w-12 h-12 rounded-lg bg-[var(--primary)]/10 flex items-center justify-center">
+                        <svg class="w-6 h-6 text-[var(--primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <span class="text-xs px-2 py-1 rounded-full bg-purple-500/10 text-purple-500 font-semibold">+24%</span>
+                </div>
+                <h3 class="text-2xl font-bold mb-1">$2.4M</h3>
+                <p class="text-sm text-[var(--muted)]">Revenue</p>
+            </div>
+
+            <div class="bg-[var(--surface)] rounded-xl p-6 border border-[var(--muted)]/20 hover:shadow-lg transition-shadow" data-animate>
+                <div class="flex items-center justify-between mb-4">
+                    <div class="w-12 h-12 rounded-lg bg-[var(--primary)]/10 flex items-center justify-center">
+                        <svg class="w-6 h-6 text-[var(--primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                        </svg>
+                    </div>
+                    <span class="text-xs px-2 py-1 rounded-full bg-orange-500/10 text-orange-500 font-semibold">+5%</span>
+                </div>
+                <h3 class="text-2xl font-bold mb-1">98.2%</h3>
+                <p class="text-sm text-[var(--muted)]">System Uptime</p>
+            </div>
+        </div>
+
+        <!-- Charts Row -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+            <!-- Revenue Chart -->
+            <div class="bg-[var(--surface)] rounded-xl p-6 border border-[var(--muted)]/20" data-animate>
+                <div class="flex items-center justify-between mb-6">
+                    <h2 class="text-xl font-bold">Revenue Trend</h2>
+                    <select class="text-sm bg-[var(--bg)] border border-[var(--muted)]/20 rounded-lg px-3 py-1.5 text-[var(--text)]">
+                        <option>Last 7 days</option>
+                        <option>Last 30 days</option>
+                        <option>Last 90 days</option>
+                    </select>
+                </div>
+                <div class="h-64">
+                    <canvas id="revenueChart"></canvas>
+                </div>
+            </div>
+
+            <!-- User Growth Chart -->
+            <div class="bg-[var(--surface)] rounded-xl p-6 border border-[var(--muted)]/20" data-animate>
+                <div class="flex items-center justify-between mb-6">
+                    <h2 class="text-xl font-bold">User Growth</h2>
+                    <select class="text-sm bg-[var(--bg)] border border-[var(--muted)]/20 rounded-lg px-3 py-1.5 text-[var(--text)]">
+                        <option>Last 7 days</option>
+                        <option>Last 30 days</option>
+                        <option>Last 90 days</option>
+                    </select>
+                </div>
+                <div class="h-64">
+                    <canvas id="userChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Data Tables Row -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+            <!-- Recent Projects -->
+            <div class="bg-[var(--surface)] rounded-xl p-6 border border-[var(--muted)]/20" data-animate>
+                <div class="flex items-center justify-between mb-6">
+                    <h2 class="text-xl font-bold">Recent Projects</h2>
+                    <a href="#" class="text-sm text-[var(--primary)] hover:underline">View All</a>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-sm">
+                        <thead>
+                            <tr class="border-b border-[var(--muted)]/20">
+                                <th class="text-left py-3 px-4 font-semibold text-[var(--muted)]">Project</th>
+                                <th class="text-left py-3 px-4 font-semibold text-[var(--muted)]">Status</th>
+                                <th class="text-right py-3 px-4 font-semibold text-[var(--muted)]">Progress</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b border-[var(--muted)]/10 hover:bg-[var(--bg)]/50 transition-colors">
+                                <td class="py-3 px-4">
+                                    <div class="font-medium">Retail Analytics</div>
+                                    <div class="text-xs text-[var(--muted)]">Fortune 500 Client</div>
+                                </td>
+                                <td class="py-3 px-4">
+                                    <span class="px-2 py-1 text-xs rounded-full bg-green-500/10 text-green-500">Active</span>
+                                </td>
+                                <td class="py-3 px-4 text-right">
+                                    <div class="flex items-center justify-end">
+                                        <div class="w-16 h-2 bg-[var(--muted)]/20 rounded-full mr-2">
+                                            <div class="w-3/4 h-2 bg-[var(--primary)] rounded-full"></div>
+                                        </div>
+                                        <span class="text-xs text-[var(--muted)]">75%</span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="border-b border-[var(--muted)]/10 hover:bg-[var(--bg)]/50 transition-colors">
+                                <td class="py-3 px-4">
+                                    <div class="font-medium">Healthcare Platform</div>
+                                    <div class="text-xs text-[var(--muted)]">Regional Network</div>
+                                </td>
+                                <td class="py-3 px-4">
+                                    <span class="px-2 py-1 text-xs rounded-full bg-blue-500/10 text-blue-500">In Progress</span>
+                                </td>
+                                <td class="py-3 px-4 text-right">
+                                    <div class="flex items-center justify-end">
+                                        <div class="w-16 h-2 bg-[var(--muted)]/20 rounded-full mr-2">
+                                            <div class="w-1/2 h-2 bg-[var(--primary)] rounded-full"></div>
+                                        </div>
+                                        <span class="text-xs text-[var(--muted)]">50%</span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="border-b border-[var(--muted)]/10 hover:bg-[var(--bg)]/50 transition-colors">
+                                <td class="py-3 px-4">
+                                    <div class="font-medium">Financial Services</div>
+                                    <div class="text-xs text-[var(--muted)]">Fraud Detection</div>
+                                </td>
+                                <td class="py-3 px-4">
+                                    <span class="px-2 py-1 text-xs rounded-full bg-green-500/10 text-green-500">Active</span>
+                                </td>
+                                <td class="py-3 px-4 text-right">
+                                    <div class="flex items-center justify-end">
+                                        <div class="w-16 h-2 bg-[var(--muted)]/20 rounded-full mr-2">
+                                            <div class="w-full h-2 bg-[var(--primary)] rounded-full"></div>
+                                        </div>
+                                        <span class="text-xs text-[var(--muted)]">100%</span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-[var(--bg)]/50 transition-colors">
+                                <td class="py-3 px-4">
+                                    <div class="font-medium">Manufacturing IoT</div>
+                                    <div class="text-xs text-[var(--muted)]">Global Company</div>
+                                </td>
+                                <td class="py-3 px-4">
+                                    <span class="px-2 py-1 text-xs rounded-full bg-yellow-500/10 text-yellow-500">Pending</span>
+                                </td>
+                                <td class="py-3 px-4 text-right">
+                                    <div class="flex items-center justify-end">
+                                        <div class="w-16 h-2 bg-[var(--muted)]/20 rounded-full mr-2">
+                                            <div class="w-1/4 h-2 bg-[var(--primary)] rounded-full"></div>
+                                        </div>
+                                        <span class="text-xs text-[var(--muted)]">25%</span>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- System Activity -->
+            <div class="bg-[var(--surface)] rounded-xl p-6 border border-[var(--muted)]/20" data-animate>
+                <div class="flex items-center justify-between mb-6">
+                    <h2 class="text-xl font-bold">System Activity</h2>
+                    <a href="#" class="text-sm text-[var(--primary)] hover:underline">View Logs</a>
+                </div>
+                <div class="space-y-4">
+                    <div class="flex items-start space-x-4 p-4 bg-[var(--bg)] rounded-lg border border-[var(--muted)]/10">
+                        <div class="w-10 h-10 rounded-full bg-green-500/10 flex items-center justify-center flex-shrink-0">
+                            <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <p class="text-sm font-medium">Data pipeline completed</p>
+                            <p class="text-xs text-[var(--muted)] mt-1">Retail Analytics project - 2 minutes ago</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4 p-4 bg-[var(--bg)] rounded-lg border border-[var(--muted)]/10">
+                        <div class="w-10 h-10 rounded-full bg-blue-500/10 flex items-center justify-center flex-shrink-0">
+                            <svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                            </svg>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <p class="text-sm font-medium">New user registered</p>
+                            <p class="text-xs text-[var(--muted)] mt-1">Enterprise client account - 15 minutes ago</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4 p-4 bg-[var(--bg)] rounded-lg border border-[var(--muted)]/10">
+                        <div class="w-10 h-10 rounded-full bg-purple-500/10 flex items-center justify-center flex-shrink-0">
+                            <svg class="w-5 h-5 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                            </svg>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <p class="text-sm font-medium">Report generated</p>
+                            <p class="text-xs text-[var(--muted)] mt-1">Monthly analytics report - 1 hour ago</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4 p-4 bg-[var(--bg)] rounded-lg border border-[var(--muted)]/10">
+                        <div class="w-10 h-10 rounded-full bg-orange-500/10 flex items-center justify-center flex-shrink-0">
+                            <svg class="w-5 h-5 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+                            </svg>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <p class="text-sm font-medium">System backup completed</p>
+                            <p class="text-xs text-[var(--muted)] mt-1">Daily backup routine - 2 hours ago</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-[var(--surface)] border-t border-[var(--muted)]/20 py-8 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center text-sm text-[var(--muted)]">
+                <p>&copy; 2025 DataAnalytics Pro. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/theme.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+        // Initialize charts when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            // Revenue Chart
+            const revenueCtx = document.getElementById('revenueChart');
+            if (revenueCtx) {
+                new Chart(revenueCtx, {
+                    type: 'line',
+                    data: {
+                        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+                        datasets: [{
+                            label: 'Revenue',
+                            data: [450000, 520000, 480000, 610000, 580000, 670000, 720000],
+                            borderColor: 'rgb(37, 99, 235)',
+                            backgroundColor: 'rgba(37, 99, 235, 0.1)',
+                            tension: 0.4,
+                            fill: true
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                display: false
+                            }
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: false,
+                                ticks: {
+                                    callback: function(value) {
+                                        return '$' + (value / 1000) + 'K';
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+
+            // User Growth Chart
+            const userCtx = document.getElementById('userChart');
+            if (userCtx) {
+                new Chart(userCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+                        datasets: [{
+                            label: 'New Users',
+                            data: [120, 190, 150, 220, 200, 250, 280],
+                            backgroundColor: 'rgba(37, 99, 235, 0.6)',
+                            borderColor: 'rgb(37, 99, 235)',
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                display: false
+                            }
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
+

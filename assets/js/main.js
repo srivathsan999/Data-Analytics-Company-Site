@@ -104,12 +104,150 @@
     }
   }
 
+  // Home dropdown functionality (desktop)
+  function initHomeDropdown() {
+    const dropdownButton = document.getElementById('home-dropdown-button');
+    const dropdownMenu = document.getElementById('home-dropdown-menu');
+    const dropdownContainer = document.getElementById('home-dropdown');
+    
+    if (dropdownButton && dropdownMenu && dropdownContainer) {
+      let isOpen = false;
+      
+      // Toggle dropdown on click
+      dropdownButton.addEventListener('click', (e) => {
+        e.stopPropagation();
+        isOpen = !isOpen;
+        updateDropdownState();
+      });
+      
+      // Close on outside click
+      document.addEventListener('click', (e) => {
+        if (!dropdownContainer.contains(e.target)) {
+          isOpen = false;
+          updateDropdownState();
+        }
+      });
+      
+      // Keyboard navigation
+      dropdownButton.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          isOpen = !isOpen;
+          updateDropdownState();
+        } else if (e.key === 'Escape') {
+          isOpen = false;
+          updateDropdownState();
+        }
+      });
+      
+      // Update dropdown state
+      function updateDropdownState() {
+        if (isOpen) {
+          dropdownMenu.classList.remove('opacity-0', 'invisible');
+          dropdownMenu.classList.add('opacity-100', 'visible');
+          dropdownButton.setAttribute('aria-expanded', 'true');
+        } else {
+          dropdownMenu.classList.remove('opacity-100', 'visible');
+          dropdownMenu.classList.add('opacity-0', 'invisible');
+          dropdownButton.setAttribute('aria-expanded', 'false');
+        }
+      }
+      
+      // Close on link click
+      const dropdownLinks = dropdownMenu.querySelectorAll('a');
+      dropdownLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          isOpen = false;
+          updateDropdownState();
+        });
+      });
+    }
+  }
+
+  // Mobile home dropdown toggle
+  function initMobileHomeDropdown() {
+    const mobileToggle = document.querySelector('.mobile-home-dropdown-toggle');
+    const mobileDropdown = document.querySelector('.mobile-home-dropdown');
+    
+    if (mobileToggle && mobileDropdown) {
+      mobileToggle.addEventListener('click', () => {
+        const isExpanded = mobileToggle.getAttribute('aria-expanded') === 'true';
+        mobileToggle.setAttribute('aria-expanded', !isExpanded);
+        mobileDropdown.classList.toggle('hidden');
+        
+        // Rotate arrow icon
+        const arrow = mobileToggle.querySelector('svg');
+        if (arrow) {
+          arrow.style.transform = isExpanded ? 'rotate(0deg)' : 'rotate(180deg)';
+        }
+      });
+    }
+  }
+
+  // Set active state for Home dropdown
+  function setActiveHomeState() {
+    const currentPath = window.location.pathname;
+    const currentFile = currentPath.split('/').pop() || 'index.html';
+    
+    // Find all Home dropdown links
+    const homeDefaultLink = document.querySelector('#home-dropdown-menu a[href="index.html"]');
+    const homeAltLink = document.querySelector('#home-dropdown-menu a[href="home2.html"]');
+    const homeButton = document.getElementById('home-dropdown-button');
+    
+    if (currentFile === 'index.html' || currentFile === '') {
+      // On default home page
+      if (homeDefaultLink) {
+        homeDefaultLink.classList.add('text-[var(--primary)]', 'font-medium', 'bg-[var(--primary)]/5');
+      }
+      if (homeAltLink) {
+        homeAltLink.classList.remove('text-[var(--primary)]', 'font-medium', 'bg-[var(--primary)]/5');
+      }
+      if (homeButton) {
+        homeButton.classList.add('text-[var(--primary)]', 'font-medium');
+      }
+    } else if (currentFile === 'home2.html') {
+      // On alternate home page
+      if (homeAltLink) {
+        homeAltLink.classList.add('text-[var(--primary)]', 'font-medium', 'bg-[var(--primary)]/5');
+      }
+      if (homeDefaultLink) {
+        homeDefaultLink.classList.remove('text-[var(--primary)]', 'font-medium', 'bg-[var(--primary)]/5');
+      }
+      if (homeButton) {
+        homeButton.classList.add('text-[var(--primary)]', 'font-medium');
+      }
+    }
+    
+    // Also update mobile menu active state
+    const mobileHomeDefault = document.querySelector('.mobile-home-dropdown a[href="index.html"]');
+    const mobileHomeAlt = document.querySelector('.mobile-home-dropdown a[href="home2.html"]');
+    
+    if (currentFile === 'index.html' || currentFile === '') {
+      if (mobileHomeDefault) {
+        mobileHomeDefault.classList.add('text-[var(--primary)]', 'font-medium');
+      }
+      if (mobileHomeAlt) {
+        mobileHomeAlt.classList.remove('text-[var(--primary)]', 'font-medium');
+      }
+    } else if (currentFile === 'home2.html') {
+      if (mobileHomeAlt) {
+        mobileHomeAlt.classList.add('text-[var(--primary)]', 'font-medium');
+      }
+      if (mobileHomeDefault) {
+        mobileHomeDefault.classList.remove('text-[var(--primary)]', 'font-medium');
+      }
+    }
+  }
+
   // Initialize everything
   function init() {
     initScrollAnimations();
     initSmoothScroll();
     initFormValidation();
     initMobileMenu();
+    initHomeDropdown();
+    initMobileHomeDropdown();
+    setActiveHomeState();
   }
 
   // Initialize on load

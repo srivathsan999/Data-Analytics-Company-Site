@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Alternate | Data Analytics Company</title>
+    <meta name="description" content="Turning data into business decisions. Enterprise-grade analytics solutions that drive measurable outcomes.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/img/logo.svg">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/tailwind.css">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        'bg': 'var(--bg)',
+                        'surface': 'var(--surface)',
+                        'text': 'var(--text)',
+                        'muted': 'var(--muted)',
+                        'primary': 'var(--primary)',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-[var(--bg)] text-[var(--text)]">
+    
+    <!-- Navbar -->
+    <nav class="sticky top-0 z-50 bg-[var(--surface)] border-b border-[var(--muted)]/20 backdrop-blur-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16 flex-nowrap">
+                <a href="index.html" class="flex items-center space-x-2 sm:space-x-3 hover:opacity-80 transition-opacity flex-shrink-0">
+                    <img src="assets/img/logo.svg" alt="Logo" class="h-7 w-7 sm:h-8 sm:w-8">
+                    <span class="text-lg sm:text-xl font-semibold logo-text">DataAnalytics Pro</span>
+                </a>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex items-center space-x-5 xl:space-x-6 flex-nowrap flex-shrink-0 mx-4">
+                    <!-- Home Dropdown -->
+                    <div class="relative group" id="home-dropdown">
+                        <button class="text-[var(--primary)] font-medium whitespace-nowrap text-sm flex items-center space-x-1 hover:text-[var(--primary)] transition-colors" aria-expanded="false" aria-haspopup="true" id="home-dropdown-button">
+                            <span>Home</span>
+                            <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div class="absolute top-full left-0 mt-2 w-48 bg-[var(--surface)] border border-[var(--muted)]/20 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50" id="home-dropdown-menu">
+                            <div class="py-2">
+                                <a href="index.html" class="block px-4 py-2 text-sm hover:bg-[var(--muted)]/10 transition-colors">Home1</a>
+                                <a href="home2.html" class="block px-4 py-2 text-sm text-[var(--primary)] font-medium bg-[var(--primary)]/5 hover:bg-[var(--muted)]/10 transition-colors">Home2</a>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="services.html" class="hover:text-[var(--primary)] transition-colors whitespace-nowrap text-sm">Services</a>
+                    <a href="industries.html" class="hover:text-[var(--primary)] transition-colors whitespace-nowrap text-sm">Industries</a>
+                    <a href="case-studies.html" class="hover:text-[var(--primary)] transition-colors whitespace-nowrap text-sm">Case Studies</a>
+                    <a href="about.html" class="hover:text-[var(--primary)] transition-colors whitespace-nowrap text-sm">About</a>
+                    <a href="contact.html" class="hover:text-[var(--primary)] transition-colors whitespace-nowrap text-sm">Contact</a>
+                    <a href="admin-dashboard.html" class="hover:text-[var(--primary)] transition-colors whitespace-nowrap text-sm">Dashboard</a>
+                </div>
+                
+                <!-- Desktop Actions -->
+                <div class="hidden lg:flex items-center space-x-2 xl:space-x-3 flex-nowrap flex-shrink-0">
+                    <button id="theme-toggle" class="theme-toggle p-2 rounded-lg hover:bg-[var(--muted)]/10 transition-colors" aria-label="Toggle theme">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+                        </svg>
+                    </button>
+                    <a href="login.html" class="nav-btn-login px-3 xl:px-4 py-2 border border-[var(--muted)]/30 rounded-lg font-medium text-xs xl:text-sm transition-all duration-300 hover:bg-[var(--surface)] hover:border-[var(--primary)]/50 hover:shadow-md hover:scale-105 hover:-translate-y-0.5 whitespace-nowrap">
+                        Login
+                    </a>
+                    <a href="signup.html" class="nav-btn-signup px-3 xl:px-4 py-2 border border-[var(--muted)]/30 rounded-lg font-medium text-xs xl:text-sm transition-all duration-300 hover:bg-[var(--surface)] hover:border-[var(--primary)]/50 hover:shadow-md hover:scale-105 hover:-translate-y-0.5 whitespace-nowrap">
+                        Sign Up
+                    </a>
+                    <a href="contact.html" class="px-3 xl:px-4 py-2 bg-[var(--primary)] text-white rounded-lg hover:opacity-90 transition-opacity font-medium text-xs xl:text-sm whitespace-nowrap">
+                        Request Consultation
+                    </a>
+                </div>
+                
+                <!-- Mobile/Tablet Actions -->
+                <div class="flex lg:hidden items-center space-x-2">
+                    <button id="theme-toggle-mobile" class="theme-toggle p-2 rounded-lg hover:bg-[var(--muted)]/10 transition-colors" aria-label="Toggle theme">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+                        </svg>
+                    </button>
+                    <button id="mobile-menu-toggle" class="p-2 rounded-lg hover:bg-[var(--muted)]/10 transition-colors" aria-label="Toggle menu">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="mobile-menu lg:hidden">
+                <div class="py-4 space-y-3 border-t border-[var(--muted)]/20">
+                    <!-- Mobile Home Dropdown -->
+                    <div class="px-4">
+                        <button class="mobile-home-dropdown-toggle w-full flex items-center justify-between py-2 text-[var(--primary)] font-medium" aria-expanded="false">
+                            <span>Home</span>
+                            <svg class="w-4 h-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div class="mobile-home-dropdown hidden pl-4 mt-2 space-y-2">
+                            <a href="index.html" class="block py-2 text-sm hover:text-[var(--primary)] transition-colors">Home1</a>
+                            <a href="home2.html" class="block py-2 text-sm text-[var(--primary)] font-medium hover:text-[var(--primary)] transition-colors">Home2</a>
+                        </div>
+                    </div>
+                    <a href="services.html" class="block px-4 py-2 hover:text-[var(--primary)] transition-colors">Services</a>
+                    <a href="industries.html" class="block px-4 py-2 hover:text-[var(--primary)] transition-colors">Industries</a>
+                    <a href="case-studies.html" class="block px-4 py-2 hover:text-[var(--primary)] transition-colors">Case Studies</a>
+                    <a href="about.html" class="block px-4 py-2 hover:text-[var(--primary)] transition-colors">About</a>
+                    <a href="contact.html" class="block px-4 py-2 hover:text-[var(--primary)] transition-colors">Contact</a>
+                    <a href="admin-dashboard.html" class="block px-4 py-2 hover:text-[var(--primary)] transition-colors">Dashboard</a>
+                    <div class="pt-2 space-y-2 px-4">
+                        <a href="login.html" class="block w-[70%] mx-auto px-4 py-2 text-center border border-[var(--muted)]/30 rounded-lg font-medium transition-all duration-300 hover:bg-[var(--surface)] hover:border-[var(--primary)]/50 hover:shadow-md hover:scale-105">
+                            Login
+                        </a>
+                        <a href="signup.html" class="block w-[70%] mx-auto px-4 py-2 text-center border border-[var(--muted)]/30 rounded-lg font-medium transition-all duration-300 hover:bg-[var(--surface)] hover:border-[var(--primary)]/50 hover:shadow-md hover:scale-105">
+                            Sign Up
+                        </a>
+                        <a href="contact.html" class="block w-[70%] mx-auto px-4 py-2 text-center bg-[var(--primary)] text-white rounded-lg hover:opacity-90 transition-opacity font-medium">
+                            Request Consultation
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto" data-animate>
+                <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6">
+                    Turning Data Into Business Decisions
+                </h1>
+                <p class="text-base sm:text-lg md:text-xl text-[var(--muted)] mb-6 sm:mb-8 px-2">
+                    Transform complex data into clear, actionable insights that drive growth, reduce costs, and optimize operations. Enterprise-grade analytics solutions focused on measurable business outcomes.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-8 sm:mb-12 px-4">
+                    <a href="contact.html" class="px-6 sm:px-8 py-2.5 sm:py-3 bg-[var(--primary)] text-white rounded-lg font-medium text-sm sm:text-base transition-all duration-300 hover:shadow-lg hover:shadow-[var(--primary)]/50 hover:scale-105 hover:-translate-y-0.5">
+                        Talk to an Expert
+                    </a>
+                    <a href="case-studies.html" class="px-6 sm:px-8 py-2.5 sm:py-3 border border-[var(--muted)]/30 rounded-lg font-medium text-sm sm:text-base transition-all duration-300 hover:bg-[var(--surface)] hover:border-[var(--primary)]/50 hover:shadow-md hover:scale-105 hover:-translate-y-0.5">
+                        View Use Cases
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Business Problems We Solve -->
+    <section class="py-20 bg-[var(--surface)]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12" data-animate>
+                <h2 class="text-3xl sm:text-4xl font-bold mb-4">Business Problems We Solve</h2>
+                <p class="text-lg text-[var(--muted)] max-w-2xl mx-auto">
+                    We help organizations overcome critical data challenges and unlock the full potential of their information assets.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Revenue Analytics -->
+                <div class="bg-[var(--bg)] rounded-2xl p-6 border border-[var(--muted)]/20 hover:border-[var(--primary)]/50 transition-all duration-300 hover:shadow-lg hover:-translate-y-1" data-animate>
+                    <div class="flex justify-center mb-4">
+                        <div class="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-gradient-to-br from-[var(--primary)] to-[var(--primary)]/70 text-white shadow-lg">
+                            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-center">Revenue Analytics</h3>
+                    <p class="text-[var(--muted)] text-center">
+                        Identify revenue opportunities, optimize pricing strategies, and forecast financial performance with precision.
+                    </p>
+                </div>
+
+                <!-- Customer Behavior Insights -->
+                <div class="bg-[var(--bg)] rounded-2xl p-6 border border-[var(--muted)]/20 hover:border-[var(--primary)]/50 transition-all duration-300 hover:shadow-lg hover:-translate-y-1" data-animate>
+                    <div class="flex justify-center mb-4">
+                        <div class="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-gradient-to-br from-[var(--primary)] to-[var(--primary)]/70 text-white shadow-lg">
+                            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-center">Customer Behavior Insights</h3>
+                    <p class="text-[var(--muted)] text-center">
+                        Understand customer journeys, predict churn, and personalize experiences to drive engagement and loyalty.
+                    </p>
+                </div>
+
+                <!-- Operational Intelligence -->
+                <div class="bg-[var(--bg)] rounded-2xl p-6 border border-[var(--muted)]/20 hover:border-[var(--primary)]/50 transition-all duration-300 hover:shadow-lg hover:-translate-y-1" data-animate>
+                    <div class="flex justify-center mb-4">
+                        <div class="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-gradient-to-br from-[var(--primary)] to-[var(--primary)]/70 text-white shadow-lg">
+                            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-center">Operational Intelligence</h3>
+                    <p class="text-[var(--muted)] text-center">
+                        Streamline operations, reduce waste, and improve efficiency through real-time monitoring and predictive maintenance.
+                    </p>
+                </div>
+
+                <!-- Risk & Forecasting -->
+                <div class="bg-[var(--bg)] rounded-2xl p-6 border border-[var(--muted)]/20 hover:border-[var(--primary)]/50 transition-all duration-300 hover:shadow-lg hover:-translate-y-1" data-animate>
+                    <div class="flex justify-center mb-4">
+                        <div class="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-gradient-to-br from-[var(--primary)] to-[var(--primary)]/70 text-white shadow-lg">
+                            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-center">Risk & Forecasting</h3>
+                    <p class="text-[var(--muted)] text-center">
+                        Anticipate risks, forecast demand, and make proactive decisions with advanced predictive models.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Analytics Capabilities -->
+    <section class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12" data-animate>
+                <h2 class="text-3xl sm:text-4xl font-bold mb-4">Analytics Capabilities</h2>
+                <p class="text-lg text-[var(--muted)] max-w-2xl mx-auto">
+                    Comprehensive analytics solutions across the entire data lifecycle, from engineering to advanced AI.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Data Engineering -->
+                <div class="bg-[var(--surface)] rounded-2xl p-6 border border-[var(--muted)]/20 hover:border-[var(--primary)]/50 transition-all duration-300 hover:shadow-lg" data-animate>
+                    <div class="flex justify-center mb-4">
+                        <div class="inline-flex items-center justify-center w-12 h-12 rounded-lg bg-[var(--primary)]/10 text-[var(--primary)]">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-center">Data Engineering</h3>
+                    <p class="text-[var(--muted)] text-center text-sm">
+                        Build robust, scalable data pipelines and infrastructure that supports your analytics initiatives.
+                    </p>
+                </div>
+
+                <!-- Business Intelligence -->
+                <div class="bg-[var(--surface)] rounded-2xl p-6 border border-[var(--muted)]/20 hover:border-[var(--primary)]/50 transition-all duration-300 hover:shadow-lg" data-animate>
+                    <div class="flex justify-center mb-4">
+                        <div class="inline-flex items-center justify-center w-12 h-12 rounded-lg bg-[var(--primary)]/10 text-[var(--primary)]">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-center">Business Intelligence</h3>
+                    <p class="text-[var(--muted)] text-center text-sm">
+                        Transform data into actionable insights with powerful visualization and reporting tools.
+                    </p>
+                </div>
+
+                <!-- Advanced Analytics -->
+                <div class="bg-[var(--surface)] rounded-2xl p-6 border border-[var(--muted)]/20 hover:border-[var(--primary)]/50 transition-all duration-300 hover:shadow-lg" data-animate>
+                    <div class="flex justify-center mb-4">
+                        <div class="inline-flex items-center justify-center w-12 h-12 rounded-lg bg-[var(--primary)]/10 text-[var(--primary)]">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-center">Advanced Analytics</h3>
+                    <p class="text-[var(--muted)] text-center text-sm">
+                        Leverage statistical models and machine learning to uncover patterns and predict outcomes.
+                    </p>
+                </div>
+
+                <!-- Machine Learning & AI -->
+                <div class="bg-[var(--surface)] rounded-2xl p-6 border border-[var(--muted)]/20 hover:border-[var(--primary)]/50 transition-all duration-300 hover:shadow-lg" data-animate>
+                    <div class="flex justify-center mb-4">
+                        <div class="inline-flex items-center justify-center w-12 h-12 rounded-lg bg-[var(--primary)]/10 text-[var(--primary)]">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-center">Machine Learning & AI</h3>
+                    <p class="text-[var(--muted)] text-center text-sm">
+                        Deploy intelligent systems that learn, adapt, and automate decision-making processes.
+                    </p>
+                </div>
+
+                <!-- Cloud Data Platforms -->
+                <div class="bg-[var(--surface)] rounded-2xl p-6 border border-[var(--muted)]/20 hover:border-[var(--primary)]/50 transition-all duration-300 hover:shadow-lg" data-animate>
+                    <div class="flex justify-center mb-4">
+                        <div class="inline-flex items-center justify-center w-12 h-12 rounded-lg bg-[var(--primary)]/10 text-[var(--primary)]">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-center">Cloud Data Platforms</h3>
+                    <p class="text-[var(--muted)] text-center text-sm">
+                        Modern, scalable cloud infrastructure for data storage, processing, and analytics at scale.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industry Solutions -->
+    <section class="py-20 bg-[var(--surface)]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12" data-animate>
+                <h2 class="text-3xl sm:text-4xl font-bold mb-4">Industry Solutions</h2>
+                <p class="text-lg text-[var(--muted)] max-w-2xl mx-auto">
+                    Tailored analytics solutions designed for the unique challenges and opportunities in your industry.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-4 mb-8">
+                <div class="bg-[var(--bg)] rounded-xl p-4 border border-[var(--muted)]/20 hover:border-[var(--primary)]/50 transition-all duration-300 hover:shadow-md text-center cursor-pointer" data-animate>
+                    <div class="text-2xl font-bold text-[var(--primary)] mb-2 text-center">Finance</div>
+                    <p class="text-xs text-[var(--muted)]">Risk & Compliance</p>
+                </div>
+                <div class="bg-[var(--bg)] rounded-xl p-4 border border-[var(--muted)]/20 hover:border-[var(--primary)]/50 transition-all duration-300 hover:shadow-md text-center cursor-pointer" data-animate>
+                    <div class="text-2xl font-bold text-[var(--primary)] mb-2 text-center">Retail</div>
+                    <p class="text-xs text-[var(--muted)]">Customer Insights</p>
+                </div>
+                <div class="bg-[var(--bg)] rounded-xl p-4 border border-[var(--muted)]/20 hover:border-[var(--primary)]/50 transition-all duration-300 hover:shadow-md text-center cursor-pointer" data-animate>
+                    <div class="text-2xl font-bold text-[var(--primary)] mb-2 text-center">Healthcare</div>
+                    <p class="text-xs text-[var(--muted)]">Patient Outcomes</p>
+                </div>
+                <div class="bg-[var(--bg)] rounded-xl p-4 border border-[var(--muted)]/20 hover:border-[var(--primary)]/50 transition-all duration-300 hover:shadow-md text-center cursor-pointer" data-animate>
+                    <div class="text-2xl font-bold text-[var(--primary)] mb-2">SaaS</div>
+                    <p class="text-xs text-[var(--muted)]">Product Analytics</p>
+                </div>
+                <div class="bg-[var(--bg)] rounded-xl p-4 border border-[var(--muted)]/20 hover:border-[var(--primary)]/50 transition-all duration-300 hover:shadow-md text-center cursor-pointer" data-animate>
+                    <div class="text-2xl font-bold text-[var(--primary)] mb-2">Manufacturing</div>
+                    <p class="text-xs text-[var(--muted)]">Operational Excellence</p>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <a href="industries.html" class="inline-block px-6 py-3 bg-[var(--primary)] text-white rounded-lg font-medium hover:opacity-90 transition-opacity">
+                    View Industry Solutions
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Study Highlights -->
+    <section class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12" data-animate>
+                <h2 class="text-3xl sm:text-4xl font-bold mb-4">Case Study Highlights</h2>
+                <p class="text-lg text-[var(--muted)] max-w-2xl mx-auto">
+                    Real-world results from organizations that transformed their operations with data-driven insights.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Case Study 1 -->
+                <div class="bg-[var(--surface)] rounded-2xl p-6 border border-[var(--muted)]/20 hover:border-[var(--primary)]/50 transition-all duration-300 hover:shadow-lg" data-animate>
+                    <div class="mb-4 text-center">
+                        <span class="px-3 py-1 text-xs font-semibold rounded-full bg-[var(--primary)]/10 text-[var(--primary)]">Retail</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Fortune 500 Retail Chain</h3>
+                    <div class="mb-4">
+                        <p class="text-sm text-[var(--muted)] mb-2"><strong>Problem:</strong> Inventory management inefficiencies causing stockouts and excess inventory.</p>
+                        <p class="text-sm text-[var(--muted)] mb-2"><strong>Solution:</strong> Predictive inventory management system using ML models.</p>
+                    </div>
+                    <div class="grid grid-cols-3 gap-2">
+                        <div class="text-center p-2 bg-[var(--bg)] rounded">
+                            <div class="text-lg font-bold text-[var(--primary)]">45%</div>
+                            <div class="text-xs text-[var(--muted)]">Less stockouts</div>
+                        </div>
+                        <div class="text-center p-2 bg-[var(--bg)] rounded">
+                            <div class="text-lg font-bold text-[var(--primary)]">30%</div>
+                            <div class="text-xs text-[var(--muted)]">Less excess</div>
+                        </div>
+                        <div class="text-center p-2 bg-[var(--bg)] rounded">
+                            <div class="text-lg font-bold text-[var(--primary)]">$12M</div>
+                            <div class="text-xs text-[var(--muted)]">Saved</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case Study 2 -->
+                <div class="bg-[var(--surface)] rounded-2xl p-6 border border-[var(--muted)]/20 hover:border-[var(--primary)]/50 transition-all duration-300 hover:shadow-lg" data-animate>
+                    <div class="mb-4 text-center">
+                        <span class="px-3 py-1 text-xs font-semibold rounded-full bg-[var(--primary)]/10 text-[var(--primary)]">Healthcare</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Healthcare Provider Network</h3>
+                    <div class="mb-4">
+                        <p class="text-sm text-[var(--muted)] mb-2"><strong>Problem:</strong> High patient readmission rates and care coordination challenges.</p>
+                        <p class="text-sm text-[var(--muted)] mb-2"><strong>Solution:</strong> Real-time patient analytics platform with risk prediction.</p>
+                    </div>
+                    <div class="grid grid-cols-3 gap-2">
+                        <div class="text-center p-2 bg-[var(--bg)] rounded">
+                            <div class="text-lg font-bold text-[var(--primary)]">28%</div>
+                            <div class="text-xs text-[var(--muted)]">Fewer readmissions</div>
+                        </div>
+                        <div class="text-center p-2 bg-[var(--bg)] rounded">
+                            <div class="text-lg font-bold text-[var(--primary)]">35%</div>
+                            <div class="text-xs text-[var(--muted)]">Better coordination</div>
+                        </div>
+                        <div class="text-center p-2 bg-[var(--bg)] rounded">
+                            <div class="text-lg font-bold text-[var(--primary)]">$8M</div>
+                            <div class="text-xs text-[var(--muted)]">Cost reduction</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case Study 3 -->
+                <div class="bg-[var(--surface)] rounded-2xl p-6 border border-[var(--muted)]/20 hover:border-[var(--primary)]/50 transition-all duration-300 hover:shadow-lg" data-animate>
+                    <div class="mb-4 text-center">
+                        <span class="px-3 py-1 text-xs font-semibold rounded-full bg-[var(--primary)]/10 text-[var(--primary)]">Finance</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Financial Services Firm</h3>
+                    <div class="mb-4">
+                        <p class="text-sm text-[var(--muted)] mb-2"><strong>Problem:</strong> Fraud detection accuracy and high false positive rates.</p>
+                        <p class="text-sm text-[var(--muted)] mb-2"><strong>Solution:</strong> ML-based fraud detection with adaptive learning.</p>
+                    </div>
+                    <div class="grid grid-cols-3 gap-2">
+                        <div class="text-center p-2 bg-[var(--bg)] rounded">
+                            <div class="text-lg font-bold text-[var(--primary)]">92%</div>
+                            <div class="text-xs text-[var(--muted)]">Accuracy</div>
+                        </div>
+                        <div class="text-center p-2 bg-[var(--bg)] rounded">
+                            <div class="text-lg font-bold text-[var(--primary)]">65%</div>
+                            <div class="text-xs text-[var(--muted)]">Fewer false positives</div>
+                        </div>
+                        <div class="text-center p-2 bg-[var(--bg)] rounded">
+                            <div class="text-lg font-bold text-[var(--primary)]">40%</div>
+                            <div class="text-xs text-[var(--muted)]">Faster detection</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Analytics Process / Engagement Model -->
+    <section class="py-20 bg-[var(--surface)]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12" data-animate>
+                <h2 class="text-3xl sm:text-4xl font-bold mb-4">Our Analytics Process</h2>
+                <p class="text-lg text-[var(--muted)] max-w-2xl mx-auto">
+                    A proven methodology that transforms your data into strategic advantage through systematic discovery, modeling, deployment, and optimization.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Step 1: Discover -->
+                <div class="bg-[var(--bg)] rounded-2xl p-6 border border-[var(--muted)]/20 text-center" data-animate>
+                    <div class="flex justify-center mb-4">
+                        <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[var(--primary)]/10 text-[var(--primary)] text-2xl font-bold">
+                            1
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Discover</h3>
+                    <p class="text-[var(--muted)] text-sm">
+                        Understand your data landscape, business objectives, and key challenges through comprehensive assessment.
+                    </p>
+                </div>
+
+                <!-- Step 2: Model -->
+                <div class="bg-[var(--bg)] rounded-2xl p-6 border border-[var(--muted)]/20 text-center" data-animate>
+                    <div class="flex justify-center mb-4">
+                        <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[var(--primary)]/10 text-[var(--primary)] text-2xl font-bold">
+                            2
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Model</h3>
+                    <p class="text-[var(--muted)] text-sm">
+                        Design and develop analytical models tailored to your specific use cases and business requirements.
+                    </p>
+                </div>
+
+                <!-- Step 3: Deploy -->
+                <div class="bg-[var(--bg)] rounded-2xl p-6 border border-[var(--muted)]/20 text-center" data-animate>
+                    <div class="flex justify-center mb-4">
+                        <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[var(--primary)]/10 text-[var(--primary)] text-2xl font-bold">
+                            3
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Deploy</h3>
+                    <p class="text-[var(--muted)] text-sm">
+                        Implement solutions in production with robust infrastructure, monitoring, and change management.
+                    </p>
+                </div>
+
+                <!-- Step 4: Optimize -->
+                <div class="bg-[var(--bg)] rounded-2xl p-6 border border-[var(--muted)]/20 text-center" data-animate>
+                    <div class="flex justify-center mb-4">
+                        <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[var(--primary)]/10 text-[var(--primary)] text-2xl font-bold">
+                            4
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Optimize</h3>
+                    <p class="text-[var(--muted)] text-sm">
+                        Continuously refine and enhance models based on performance metrics and evolving business needs.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust & Credibility Section -->
+    <section class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12" data-animate>
+                <h2 class="text-3xl sm:text-4xl font-bold mb-4">Trusted by Industry Leaders</h2>
+            </div>
+            
+            <!-- Client Logos -->
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 mb-12 items-center opacity-60 hover:opacity-80 transition-opacity">
+                <!-- Microsoft -->
+                <div class="bg-[var(--surface)] rounded-lg p-4 h-16 flex items-center justify-center border border-[var(--muted)]/20">
+                    <svg viewBox="0 0 23 23" class="w-full h-full max-w-[60px]">
+                        <path fill="#f25022" d="M0 0h11v11H0z"/>
+                        <path fill="#7fba00" d="M12 0h11v11H12z"/>
+                        <path fill="#00a4ef" d="M0 12h11v11H0z"/>
+                        <path fill="#ffb900" d="M12 12h11v11H12z"/>
+                    </svg>
+                </div>
+                
+                <!-- IBM -->
+                <div class="bg-[var(--surface)] rounded-lg p-4 h-16 flex items-center justify-center border border-[var(--muted)]/20">
+                    <svg viewBox="0 0 24 24" class="w-full h-full max-w-[60px]">
+                        <path d="M6.5 4v16h11V4h-11zm1 1h9v14h-9V5zm1.5 2v1h6V7h-6zm0 2v1h6V9h-6zm0 2v1h6v-1h-6zm0 2v1h6v-1h-6zm0 2v1h6v-1h-6zm0 2v1h6v-1h-6z" fill="#006699"/>
+                    </svg>
+                </div>
+                
+                <!-- Amazon AWS -->
+                <div class="bg-[var(--surface)] rounded-lg p-4 h-16 flex items-center justify-center border border-[var(--muted)]/20">
+                    <svg viewBox="0 0 24 24" class="w-full h-full max-w-[60px]">
+                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="#FF9900" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M7.5 9.5h9v5h-9v-5z" fill="#232F3E"/>
+                    </svg>
+                </div>
+                
+                <!-- Google -->
+                <div class="bg-[var(--surface)] rounded-lg p-4 h-16 flex items-center justify-center border border-[var(--muted)]/20">
+                    <svg viewBox="0 0 24 24" class="w-full h-full max-w-[60px]">
+                        <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                        <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                        <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                        <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+                    </svg>
+                </div>
+                
+                <!-- Salesforce -->
+                <div class="bg-[var(--surface)] rounded-lg p-4 h-16 flex items-center justify-center border border-[var(--muted)]/20">
+                    <svg viewBox="0 0 24 24" class="w-full h-full max-w-[60px]">
+                        <path d="M8.954 12.198c0 1.716 1.398 3.114 3.114 3.114 1.716 0 3.114-1.398 3.114-3.114 0-1.716-1.398-3.114-3.114-3.114-1.716 0-3.114 1.398-3.114 3.114zm-4.5-6.75c0 1.716 1.398 3.114 3.114 3.114 1.716 0 3.114-1.398 3.114-3.114 0-1.716-1.398-3.114-3.114-3.114-1.716 0-3.114 1.398-3.114 3.114zm9 0c0 1.716 1.398 3.114 3.114 3.114 1.716 0 3.114-1.398 3.114-3.114 0-1.716-1.398-3.114-3.114-3.114-1.716 0-3.114 1.398-3.114 3.114zm-4.5 6.75c0 1.716 1.398 3.114 3.114 3.114 1.716 0 3.114-1.398 3.114-3.114 0-1.716-1.398-3.114-3.114-3.114-1.716 0-3.114 1.398-3.114 3.114zm9 0c0 1.716 1.398 3.114 3.114 3.114 1.716 0 3.114-1.398 3.114-3.114 0-1.716-1.398-3.114-3.114-3.114-1.716 0-3.114 1.398-3.114 3.114zm-4.5 6.75c0 1.716 1.398 3.114 3.114 3.114 1.716 0 3.114-1.398 3.114-3.114 0-1.716-1.398-3.114-3.114-3.114-1.716 0-3.114 1.398-3.114 3.114z" fill="#00A1E0"/>
+                    </svg>
+                </div>
+                
+                <!-- Oracle -->
+                <div class="bg-[var(--surface)] rounded-lg p-4 h-16 flex items-center justify-center border border-[var(--muted)]/20">
+                    <svg viewBox="0 0 24 24" class="w-full h-full max-w-[60px]">
+                        <path d="M16.412 4.412h-8.82a7.588 7.588 0 0 0-.008 15.176h8.828a7.588 7.588 0 0 0 0-15.176zm-.193 12.502H7.769v-2.137h7.085v2.137zm0-3.423H7.769V9.354h7.085v4.137zm0-5.569H7.769V4.412h7.085v4.112z" fill="#F80000"/>
+                    </svg>
+                </div>
+            </div>
+            
+            <!-- Certifications / Compliance Badges -->
+            <div class="flex flex-wrap justify-center gap-4 mb-12">
+                <div class="px-4 py-2 bg-[var(--surface)] rounded-lg border border-[var(--muted)]/20">
+                    <span class="text-sm font-semibold text-[var(--muted)]">SOC 2 Certified</span>
+                </div>
+                <div class="px-4 py-2 bg-[var(--surface)] rounded-lg border border-[var(--muted)]/20">
+                    <span class="text-sm font-semibold text-[var(--muted)]">GDPR Compliant</span>
+                </div>
+                <div class="px-4 py-2 bg-[var(--surface)] rounded-lg border border-[var(--muted)]/20">
+                    <span class="text-sm font-semibold text-[var(--muted)]">ISO 27001</span>
+                </div>
+                <div class="px-4 py-2 bg-[var(--surface)] rounded-lg border border-[var(--muted)]/20">
+                    <span class="text-sm font-semibold text-[var(--muted)]">HIPAA Compliant</span>
+                </div>
+            </div>
+            
+            <!-- Testimonial Quotes -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-[var(--surface)] rounded-xl p-6 border border-[var(--muted)]/20" data-animate>
+                    <p class="text-[var(--muted)] mb-4 italic">
+                        "DataAnalytics Pro transformed our approach to data. Their insights helped us reduce operational costs by 25% in the first year."
+                    </p>
+                    <p class="text-sm font-semibold">— CEO, Fortune 500 Company</p>
+                </div>
+                <div class="bg-[var(--surface)] rounded-xl p-6 border border-[var(--muted)]/20" data-animate>
+                    <p class="text-[var(--muted)] mb-4 italic">
+                        "The team's expertise in predictive analytics enabled us to anticipate market trends and stay ahead of the competition."
+                    </p>
+                    <p class="text-sm font-semibold">— VP Analytics, Tech Firm</p>
+                </div>
+                <div class="bg-[var(--surface)] rounded-xl p-6 border border-[var(--muted)]/20" data-animate>
+                    <p class="text-[var(--muted)] mb-4 italic">
+                        "Outstanding partnership. They delivered on time, within budget, and exceeded our expectations for data quality and insights."
+                    </p>
+                    <p class="text-sm font-semibold">— Director of Operations, Healthcare Network</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final Conversion CTA -->
+    <section class="py-20 bg-gradient-to-br from-[var(--primary)]/10 to-[var(--primary)]/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto" data-animate>
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6">
+                    Ready to Make Data Work for You?
+                </h2>
+                <p class="text-base sm:text-lg text-[var(--muted)] mb-6 sm:mb-8">
+                    Schedule a consultation with our analytics experts and discover how data-driven insights can transform your business.
+                </p>
+                <a href="contact.html" class="inline-block px-8 py-3 bg-[var(--primary)] text-white rounded-lg font-medium text-base transition-all duration-300 hover:shadow-lg hover:shadow-[var(--primary)]/50 hover:scale-105 hover:-translate-y-0.5">
+                    Schedule a Consultation
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[var(--surface)] border-t border-[var(--muted)]/20 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div>
+                    <h4 class="font-semibold mb-4">Brand</h4>
+                    <ul class="space-y-2 text-sm text-[var(--muted)]">
+                        <li><a href="about.html" class="hover:text-[var(--primary)] transition-colors">About Us</a></li>
+                        <li><a href="case-studies.html" class="hover:text-[var(--primary)] transition-colors">Case Studies</a></li>
+                        <li><a href="contact.html" class="hover:text-[var(--primary)] transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Services</h4>
+                    <ul class="space-y-2 text-sm text-[var(--muted)]">
+                        <li><a href="services.html" class="hover:text-[var(--primary)] transition-colors">Data Engineering</a></li>
+                        <li><a href="services.html" class="hover:text-[var(--primary)] transition-colors">Business Intelligence</a></li>
+                        <li><a href="services.html" class="hover:text-[var(--primary)] transition-colors">Predictive Analytics</a></li>
+                        <li><a href="services.html" class="hover:text-[var(--primary)] transition-colors">Data Visualization</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Industries</h4>
+                    <ul class="space-y-2 text-sm text-[var(--muted)]">
+                        <li><a href="industries.html" class="hover:text-[var(--primary)] transition-colors">Healthcare</a></li>
+                        <li><a href="industries.html" class="hover:text-[var(--primary)] transition-colors">Finance</a></li>
+                        <li><a href="industries.html" class="hover:text-[var(--primary)] transition-colors">Retail</a></li>
+                        <li><a href="industries.html" class="hover:text-[var(--primary)] transition-colors">Manufacturing</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Contact</h4>
+                    <ul class="space-y-2 text-sm text-[var(--muted)]">
+                        <li>info@dataanalyticspro.com</li>
+                        <li>+1 (555) 123-4567</li>
+                        <li><a href="contact.html" class="hover:text-[var(--primary)] transition-colors">Contact Us</a></li>
+                        <li><a href="about.html" class="hover:text-[var(--primary)] transition-colors">About Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="mt-8 pt-8 border-t border-[var(--muted)]/20 text-center text-sm text-[var(--muted)]">
+                <p>&copy; 2025 DataAnalytics Pro. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/theme.js"></script>
+    <script src="assets/js/charts.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
+

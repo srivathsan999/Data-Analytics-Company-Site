@@ -35,36 +35,51 @@
     <!-- Navbar -->
     <nav class="sticky top-0 z-50 bg-[var(--surface)] border-b border-[var(--muted)]/20 backdrop-blur-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <a href="index.html" class="flex items-center space-x-2 sm:space-x-3 hover:opacity-80 transition-opacity">
+            <div class="flex justify-between items-center h-16 flex-nowrap">
+                <a href="index.html" class="flex items-center space-x-2 sm:space-x-3 hover:opacity-80 transition-opacity flex-shrink-0">
                     <img src="assets/img/logo.svg" alt="Logo" class="h-7 w-7 sm:h-8 sm:w-8">
                     <span class="text-lg sm:text-xl font-semibold logo-text">DataAnalytics Pro</span>
                 </a>
                 
                 <!-- Desktop Menu -->
-                <div class="hidden lg:flex items-center space-x-8">
-                    <a href="index.html" class="hover:text-[var(--primary)] transition-colors">Home</a>
-                    <a href="services.html" class="hover:text-[var(--primary)] transition-colors">Services</a>
-                    <a href="industries.html" class="text-[var(--primary)] font-medium">Industries</a>
-                    <a href="case-studies.html" class="hover:text-[var(--primary)] transition-colors">Case Studies</a>
-                    <a href="about.html" class="hover:text-[var(--primary)] transition-colors">About</a>
-                    <a href="contact.html" class="hover:text-[var(--primary)] transition-colors">Contact</a>
+                <div class="hidden lg:flex items-center space-x-5 xl:space-x-6 flex-nowrap flex-shrink-0 mx-4">
+                    <!-- Home Dropdown -->
+                    <div class="relative group" id="home-dropdown">
+                        <button class="hover:text-[var(--primary)] transition-colors whitespace-nowrap text-sm flex items-center space-x-1" aria-expanded="false" aria-haspopup="true" id="home-dropdown-button">
+                            <span>Home</span>
+                            <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div class="absolute top-full left-0 mt-2 w-48 bg-[var(--surface)] border border-[var(--muted)]/20 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50" id="home-dropdown-menu">
+                            <div class="py-2">
+                                <a href="index.html" class="block px-4 py-2 text-sm hover:bg-[var(--muted)]/10 transition-colors">Home1</a>
+                                <a href="home2.html" class="block px-4 py-2 text-sm hover:bg-[var(--muted)]/10 transition-colors">Home2</a>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="services.html" class="hover:text-[var(--primary)] transition-colors whitespace-nowrap text-sm">Services</a>
+                    <a href="industries.html" class="text-[var(--primary)] font-medium whitespace-nowrap text-sm">Industries</a>
+                    <a href="case-studies.html" class="hover:text-[var(--primary)] transition-colors whitespace-nowrap text-sm">Case Studies</a>
+                    <a href="about.html" class="hover:text-[var(--primary)] transition-colors whitespace-nowrap text-sm">About</a>
+                    <a href="contact.html" class="hover:text-[var(--primary)] transition-colors whitespace-nowrap text-sm">Contact</a>
+                    <a href="admin-dashboard.html" class="hover:text-[var(--primary)] transition-colors whitespace-nowrap text-sm">Dashboard</a>
                 </div>
                 
                 <!-- Desktop Actions -->
-                <div class="hidden lg:flex items-center space-x-4">
+                <div class="hidden lg:flex items-center space-x-2 xl:space-x-3 flex-nowrap flex-shrink-0">
                     <button id="theme-toggle" class="theme-toggle p-2 rounded-lg hover:bg-[var(--muted)]/10 transition-colors" aria-label="Toggle theme">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
                         </svg>
                     </button>
-                    <a href="login.html" class="nav-btn-login px-4 py-2 border border-[var(--muted)]/30 rounded-lg font-medium text-sm transition-all duration-300 hover:bg-[var(--surface)] hover:border-[var(--primary)]/50 hover:shadow-md hover:scale-105 hover:-translate-y-0.5">
+                    <a href="login.html" class="nav-btn-login px-3 xl:px-4 py-2 border border-[var(--muted)]/30 rounded-lg font-medium text-xs xl:text-sm transition-all duration-300 hover:bg-[var(--surface)] hover:border-[var(--primary)]/50 hover:shadow-md hover:scale-105 hover:-translate-y-0.5 whitespace-nowrap">
                         Login
                     </a>
-                    <a href="signup.html" class="nav-btn-signup px-4 py-2 border border-[var(--muted)]/30 rounded-lg font-medium text-sm transition-all duration-300 hover:bg-[var(--surface)] hover:border-[var(--primary)]/50 hover:shadow-md hover:scale-105 hover:-translate-y-0.5">
+                    <a href="signup.html" class="nav-btn-signup px-3 xl:px-4 py-2 border border-[var(--muted)]/30 rounded-lg font-medium text-xs xl:text-sm transition-all duration-300 hover:bg-[var(--surface)] hover:border-[var(--primary)]/50 hover:shadow-md hover:scale-105 hover:-translate-y-0.5 whitespace-nowrap">
                         Sign Up
                     </a>
-                    <a href="contact.html" class="px-4 py-2 bg-[var(--primary)] text-white rounded-lg hover:opacity-90 transition-opacity font-medium text-sm">
+                    <a href="contact.html" class="px-3 xl:px-4 py-2 bg-[var(--primary)] text-white rounded-lg hover:opacity-90 transition-opacity font-medium text-xs xl:text-sm whitespace-nowrap">
                         Request Consultation
                     </a>
                 </div>
@@ -87,12 +102,25 @@
             <!-- Mobile Menu -->
             <div id="mobile-menu" class="mobile-menu lg:hidden">
                 <div class="py-4 space-y-3 border-t border-[var(--muted)]/20">
-                    <a href="index.html" class="block px-4 py-2 hover:text-[var(--primary)] transition-colors">Home</a>
+                    <!-- Mobile Home Dropdown -->
+                    <div class="px-4">
+                        <button class="mobile-home-dropdown-toggle w-full flex items-center justify-between py-2 hover:text-[var(--primary)] transition-colors" aria-expanded="false">
+                            <span>Home</span>
+                            <svg class="w-4 h-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div class="mobile-home-dropdown hidden pl-4 mt-2 space-y-2">
+                            <a href="index.html" class="block py-2 text-sm hover:text-[var(--primary)] transition-colors">Home1</a>
+                            <a href="home2.html" class="block py-2 text-sm hover:text-[var(--primary)] transition-colors">Home2</a>
+                        </div>
+                    </div>
                     <a href="services.html" class="block px-4 py-2 hover:text-[var(--primary)] transition-colors">Services</a>
                     <a href="industries.html" class="block px-4 py-2 text-[var(--primary)] font-medium">Industries</a>
                     <a href="case-studies.html" class="block px-4 py-2 hover:text-[var(--primary)] transition-colors">Case Studies</a>
                     <a href="about.html" class="block px-4 py-2 hover:text-[var(--primary)] transition-colors">About</a>
                     <a href="contact.html" class="block px-4 py-2 hover:text-[var(--primary)] transition-colors">Contact</a>
+                    <a href="admin-dashboard.html" class="block px-4 py-2 hover:text-[var(--primary)] transition-colors">Dashboard</a>
                     <div class="pt-2 space-y-2 px-4">
                         <a href="login.html" class="block w-[70%] mx-auto px-4 py-2 text-center border border-[var(--muted)]/30 rounded-lg font-medium transition-all duration-300 hover:bg-[var(--surface)] hover:border-[var(--primary)]/50 hover:shadow-md hover:scale-105">
                             Login
@@ -109,12 +137,20 @@
         </div>
     </nav>
 
-    <!-- Page Header -->
-    <section class="py-12 sm:py-16 md:py-20 bg-[var(--surface)]">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Hero Section -->
+    <section class="relative py-16 sm:py-20 md:py-24 bg-gradient-to-br from-[var(--primary)]/10 via-[var(--surface)] to-[var(--primary)]/5 overflow-hidden">
+        <div class="absolute inset-0 bg-grid-pattern opacity-5"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="text-center" data-animate>
-                <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4">Industries We Serve</h1>
-                <p class="text-base sm:text-lg md:text-xl text-[var(--muted)] max-w-2xl mx-auto px-4">
+                <div class="inline-flex items-center justify-center w-20 h-20 mb-6 rounded-full bg-[var(--primary)]/10 border-2 border-[var(--primary)]/30">
+                    <svg class="w-10 h-10 text-[var(--primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                    </svg>
+                </div>
+                <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-[var(--primary)] to-[var(--primary)]/70 bg-clip-text text-transparent">
+                    Industries We Serve
+                </h1>
+                <p class="text-lg sm:text-xl md:text-2xl text-[var(--muted)] max-w-3xl mx-auto">
                     Specialized analytics solutions tailored to your industry's unique challenges and opportunities
                 </p>
             </div>
@@ -122,160 +158,430 @@
     </section>
 
     <!-- Industries Grid -->
-    <section class="py-12 sm:py-16 md:py-20">
+    <section class="py-16 sm:py-20 md:py-24">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
                 
-                <div class="bg-[var(--surface)] rounded-lg p-6 sm:p-8 border border-[var(--muted)]/20 h-full hover:shadow-lg transition-shadow" data-animate>
-                    <div class="text-4xl mb-4 text-center">🏥</div>
-                    <h3 class="text-xl sm:text-2xl font-semibold mb-3 text-center">Healthcare</h3>
-                    <p class="text-[var(--muted)] mb-4">
-                        Patient outcome analytics, operational efficiency, and predictive health modeling to improve care delivery and reduce costs.
-                    </p>
-                    <div class="text-sm text-[var(--muted)]">
-                        <p class="font-medium mb-2">Solutions:</p>
-                        <ul class="space-y-1 list-disc list-inside">
-                            <li>Clinical decision support systems</li>
-                            <li>Population health analytics</li>
-                            <li>Revenue cycle optimization</li>
-                            <li>Patient readmission prediction</li>
-                        </ul>
+                <!-- Healthcare -->
+                <div class="group relative bg-[var(--surface)] rounded-2xl p-8 border border-[var(--muted)]/20 hover:border-[var(--primary)]/50 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 overflow-hidden" data-animate>
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[var(--primary)]/20 to-transparent rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div class="relative z-10">
+                        <div class="flex justify-center mb-6">
+                            <div class="inline-flex items-center justify-center w-16 h-16 rounded-xl bg-gradient-to-br from-[var(--primary)] to-[var(--primary)]/70 text-white shadow-lg">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                                </svg>
+                            </div>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 text-center">Healthcare</h3>
+                        <p class="text-[var(--muted)] mb-6 leading-relaxed">
+                            Patient outcome analytics, operational efficiency, and predictive health modeling to improve care delivery and reduce costs.
+                        </p>
+                        <div class="bg-gradient-to-r from-[var(--primary)]/10 to-[var(--primary)]/5 rounded-lg p-4 border-l-4 border-[var(--primary)]">
+                            <h4 class="text-sm font-semibold mb-3 text-[var(--primary)]">Key Solutions</h4>
+                            <ul class="space-y-2 text-sm text-[var(--muted)]">
+                                <li class="flex items-center">
+                                    <svg class="w-4 h-4 text-[var(--primary)] mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    Clinical decision support systems
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="w-4 h-4 text-[var(--primary)] mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    Population health analytics
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="w-4 h-4 text-[var(--primary)] mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    Revenue cycle optimization
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="w-4 h-4 text-[var(--primary)] mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    Patient readmission prediction
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
 
-                <div class="bg-[var(--surface)] rounded-lg p-6 sm:p-8 border border-[var(--muted)]/20 h-full hover:shadow-lg transition-shadow" data-animate>
-                    <div class="text-4xl mb-4 text-center">💼</div>
-                    <h3 class="text-xl sm:text-2xl font-semibold mb-3 text-center">Finance</h3>
-                    <p class="text-[var(--muted)] mb-4">
-                        Risk assessment, fraud detection, and portfolio optimization using advanced analytics and machine learning models.
-                    </p>
-                    <div class="text-sm text-[var(--muted)]">
-                        <p class="font-medium mb-2">Solutions:</p>
-                        <ul class="space-y-1 list-disc list-inside">
-                            <li>Credit risk modeling</li>
-                            <li>Anti-money laundering detection</li>
-                            <li>Algorithmic trading analytics</li>
-                            <li>Regulatory compliance reporting</li>
-                        </ul>
+                <!-- Finance -->
+                <div class="group relative bg-[var(--surface)] rounded-2xl p-8 border border-[var(--muted)]/20 hover:border-[var(--primary)]/50 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 overflow-hidden" data-animate>
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[var(--primary)]/20 to-transparent rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div class="relative z-10">
+                        <div class="flex justify-center mb-6">
+                            <div class="inline-flex items-center justify-center w-16 h-16 rounded-xl bg-gradient-to-br from-[var(--primary)] to-[var(--primary)]/70 text-white shadow-lg">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                            </div>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 text-center">Finance</h3>
+                        <p class="text-[var(--muted)] mb-6 leading-relaxed">
+                            Risk assessment, fraud detection, and portfolio optimization using advanced analytics and machine learning models.
+                        </p>
+                        <div class="bg-gradient-to-r from-[var(--primary)]/10 to-[var(--primary)]/5 rounded-lg p-4 border-l-4 border-[var(--primary)]">
+                            <h4 class="text-sm font-semibold mb-3 text-[var(--primary)]">Key Solutions</h4>
+                            <ul class="space-y-2 text-sm text-[var(--muted)]">
+                                <li class="flex items-center">
+                                    <svg class="w-4 h-4 text-[var(--primary)] mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    Credit risk modeling
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="w-4 h-4 text-[var(--primary)] mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    Anti-money laundering detection
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="w-4 h-4 text-[var(--primary)] mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    Algorithmic trading analytics
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="w-4 h-4 text-[var(--primary)] mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    Regulatory compliance reporting
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
 
-                <div class="bg-[var(--surface)] rounded-lg p-6 sm:p-8 border border-[var(--muted)]/20 h-full hover:shadow-lg transition-shadow" data-animate>
-                    <div class="text-4xl mb-4 text-center">🛒</div>
-                    <h3 class="text-xl sm:text-2xl font-semibold mb-3 text-center">Retail</h3>
-                    <p class="text-[var(--muted)] mb-4">
-                        Customer behavior analysis, inventory optimization, and demand forecasting to drive sales and reduce waste.
-                    </p>
-                    <div class="text-sm text-[var(--muted)]">
-                        <p class="font-medium mb-2">Solutions:</p>
-                        <ul class="space-y-1 list-disc list-inside">
-                            <li>Customer segmentation and targeting</li>
-                            <li>Price optimization models</li>
-                            <li>Supply chain analytics</li>
-                            <li>Omnichannel performance tracking</li>
-                        </ul>
+                <!-- Retail -->
+                <div class="group relative bg-[var(--surface)] rounded-2xl p-8 border border-[var(--muted)]/20 hover:border-[var(--primary)]/50 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 overflow-hidden" data-animate>
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[var(--primary)]/20 to-transparent rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div class="relative z-10">
+                        <div class="flex justify-center mb-6">
+                            <div class="inline-flex items-center justify-center w-16 h-16 rounded-xl bg-gradient-to-br from-[var(--primary)] to-[var(--primary)]/70 text-white shadow-lg">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                                </svg>
+                            </div>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 text-center">Retail</h3>
+                        <p class="text-[var(--muted)] mb-6 leading-relaxed">
+                            Customer behavior analysis, inventory optimization, and demand forecasting to drive sales and reduce waste.
+                        </p>
+                        <div class="bg-gradient-to-r from-[var(--primary)]/10 to-[var(--primary)]/5 rounded-lg p-4 border-l-4 border-[var(--primary)]">
+                            <h4 class="text-sm font-semibold mb-3 text-[var(--primary)]">Key Solutions</h4>
+                            <ul class="space-y-2 text-sm text-[var(--muted)]">
+                                <li class="flex items-center">
+                                    <svg class="w-4 h-4 text-[var(--primary)] mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    Customer segmentation and targeting
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="w-4 h-4 text-[var(--primary)] mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    Price optimization models
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="w-4 h-4 text-[var(--primary)] mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    Supply chain analytics
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="w-4 h-4 text-[var(--primary)] mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    Omnichannel performance tracking
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
 
-                <div class="bg-[var(--surface)] rounded-lg p-6 sm:p-8 border border-[var(--muted)]/20 h-full hover:shadow-lg transition-shadow" data-animate>
-                    <div class="text-4xl mb-4 text-center">🏭</div>
-                    <h3 class="text-xl sm:text-2xl font-semibold mb-3 text-center">Manufacturing</h3>
-                    <p class="text-[var(--muted)] mb-4">
-                        Predictive maintenance, quality control analytics, and supply chain optimization for operational excellence.
-                    </p>
-                    <div class="text-sm text-[var(--muted)]">
-                        <p class="font-medium mb-2">Solutions:</p>
-                        <ul class="space-y-1 list-disc list-inside">
-                            <li>IoT sensor data analytics</li>
-                            <li>Production line optimization</li>
-                            <li>Quality defect prediction</li>
-                            <li>Energy consumption analytics</li>
-                        </ul>
+                <!-- Manufacturing -->
+                <div class="group relative bg-[var(--surface)] rounded-2xl p-8 border border-[var(--muted)]/20 hover:border-[var(--primary)]/50 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 overflow-hidden" data-animate>
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[var(--primary)]/20 to-transparent rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div class="relative z-10">
+                        <div class="flex justify-center mb-6">
+                            <div class="inline-flex items-center justify-center w-16 h-16 rounded-xl bg-gradient-to-br from-[var(--primary)] to-[var(--primary)]/70 text-white shadow-lg">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
+                                </svg>
+                            </div>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 text-center">Manufacturing</h3>
+                        <p class="text-[var(--muted)] mb-6 leading-relaxed">
+                            Predictive maintenance, quality control analytics, and supply chain optimization for operational excellence.
+                        </p>
+                        <div class="bg-gradient-to-r from-[var(--primary)]/10 to-[var(--primary)]/5 rounded-lg p-4 border-l-4 border-[var(--primary)]">
+                            <h4 class="text-sm font-semibold mb-3 text-[var(--primary)]">Key Solutions</h4>
+                            <ul class="space-y-2 text-sm text-[var(--muted)]">
+                                <li class="flex items-center">
+                                    <svg class="w-4 h-4 text-[var(--primary)] mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    IoT sensor data analytics
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="w-4 h-4 text-[var(--primary)] mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    Production line optimization
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="w-4 h-4 text-[var(--primary)] mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    Quality defect prediction
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="w-4 h-4 text-[var(--primary)] mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    Energy consumption analytics
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
 
-                <div class="bg-[var(--surface)] rounded-lg p-6 sm:p-8 border border-[var(--muted)]/20 h-full hover:shadow-lg transition-shadow" data-animate>
-                    <div class="text-4xl mb-4 text-center">🚚</div>
-                    <h3 class="text-xl sm:text-2xl font-semibold mb-3 text-center">Logistics</h3>
-                    <p class="text-[var(--muted)] mb-4">
-                        Route optimization, fleet management analytics, and delivery performance tracking to improve efficiency.
-                    </p>
-                    <div class="text-sm text-[var(--muted)]">
-                        <p class="font-medium mb-2">Solutions:</p>
-                        <ul class="space-y-1 list-disc list-inside">
-                            <li>Dynamic routing optimization</li>
-                            <li>Fleet utilization analytics</li>
-                            <li>Delivery time prediction</li>
-                            <li>Warehouse management systems</li>
-                        </ul>
+                <!-- Logistics -->
+                <div class="group relative bg-[var(--surface)] rounded-2xl p-8 border border-[var(--muted)]/20 hover:border-[var(--primary)]/50 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 overflow-hidden" data-animate>
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[var(--primary)]/20 to-transparent rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div class="relative z-10">
+                        <div class="flex justify-center mb-6">
+                            <div class="inline-flex items-center justify-center w-16 h-16 rounded-xl bg-gradient-to-br from-[var(--primary)] to-[var(--primary)]/70 text-white shadow-lg">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path>
+                                </svg>
+                            </div>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 text-center">Logistics</h3>
+                        <p class="text-[var(--muted)] mb-6 leading-relaxed">
+                            Route optimization, fleet management analytics, and delivery performance tracking to improve efficiency.
+                        </p>
+                        <div class="bg-gradient-to-r from-[var(--primary)]/10 to-[var(--primary)]/5 rounded-lg p-4 border-l-4 border-[var(--primary)]">
+                            <h4 class="text-sm font-semibold mb-3 text-[var(--primary)]">Key Solutions</h4>
+                            <ul class="space-y-2 text-sm text-[var(--muted)]">
+                                <li class="flex items-center">
+                                    <svg class="w-4 h-4 text-[var(--primary)] mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    Dynamic routing optimization
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="w-4 h-4 text-[var(--primary)] mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    Fleet utilization analytics
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="w-4 h-4 text-[var(--primary)] mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    Delivery time prediction
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="w-4 h-4 text-[var(--primary)] mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    Warehouse management systems
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
 
-                <div class="bg-[var(--surface)] rounded-lg p-6 sm:p-8 border border-[var(--muted)]/20 h-full hover:shadow-lg transition-shadow" data-animate>
-                    <div class="text-4xl mb-4 text-center">🎓</div>
-                    <h3 class="text-xl sm:text-2xl font-semibold mb-3 text-center">Education</h3>
-                    <p class="text-[var(--muted)] mb-4">
-                        Student performance analytics, enrollment forecasting, and institutional effectiveness measurement.
-                    </p>
-                    <div class="text-sm text-[var(--muted)]">
-                        <p class="font-medium mb-2">Solutions:</p>
-                        <ul class="space-y-1 list-disc list-inside">
-                            <li>Learning analytics and outcomes</li>
-                            <li>Student retention prediction</li>
-                            <li>Resource allocation optimization</li>
-                            <li>Institutional research analytics</li>
-                        </ul>
+                <!-- Education -->
+                <div class="group relative bg-[var(--surface)] rounded-2xl p-8 border border-[var(--muted)]/20 hover:border-[var(--primary)]/50 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 overflow-hidden" data-animate>
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[var(--primary)]/20 to-transparent rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div class="relative z-10">
+                        <div class="flex justify-center mb-6">
+                            <div class="inline-flex items-center justify-center w-16 h-16 rounded-xl bg-gradient-to-br from-[var(--primary)] to-[var(--primary)]/70 text-white shadow-lg">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                                </svg>
+                            </div>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 text-center">Education</h3>
+                        <p class="text-[var(--muted)] mb-6 leading-relaxed">
+                            Student performance analytics, enrollment forecasting, and institutional effectiveness measurement.
+                        </p>
+                        <div class="bg-gradient-to-r from-[var(--primary)]/10 to-[var(--primary)]/5 rounded-lg p-4 border-l-4 border-[var(--primary)]">
+                            <h4 class="text-sm font-semibold mb-3 text-[var(--primary)]">Key Solutions</h4>
+                            <ul class="space-y-2 text-sm text-[var(--muted)]">
+                                <li class="flex items-center">
+                                    <svg class="w-4 h-4 text-[var(--primary)] mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    Learning analytics and outcomes
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="w-4 h-4 text-[var(--primary)] mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    Student retention prediction
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="w-4 h-4 text-[var(--primary)] mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    Resource allocation optimization
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="w-4 h-4 text-[var(--primary)] mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    Institutional research analytics
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
 
-                <div class="bg-[var(--surface)] rounded-lg p-6 sm:p-8 border border-[var(--muted)]/20 h-full hover:shadow-lg transition-shadow" data-animate>
-                    <div class="text-4xl mb-4 text-center">⚡</div>
-                    <h3 class="text-xl sm:text-2xl font-semibold mb-3 text-center">Energy & Utilities</h3>
-                    <p class="text-[var(--muted)] mb-4">
-                        Smart grid analytics, consumption forecasting, and asset management to optimize operations and reduce costs.
-                    </p>
-                    <div class="text-sm text-[var(--muted)]">
-                        <p class="font-medium mb-2">Solutions:</p>
-                        <ul class="space-y-1 list-disc list-inside">
-                            <li>Demand forecasting models</li>
-                            <li>Asset performance management</li>
-                            <li>Renewable energy optimization</li>
-                            <li>Customer usage analytics</li>
-                        </ul>
+                <!-- Energy & Utilities -->
+                <div class="group relative bg-[var(--surface)] rounded-2xl p-8 border border-[var(--muted)]/20 hover:border-[var(--primary)]/50 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 overflow-hidden" data-animate>
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[var(--primary)]/20 to-transparent rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div class="relative z-10">
+                        <div class="flex justify-center mb-6">
+                            <div class="inline-flex items-center justify-center w-16 h-16 rounded-xl bg-gradient-to-br from-[var(--primary)] to-[var(--primary)]/70 text-white shadow-lg">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                </svg>
+                            </div>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 text-center">Energy & Utilities</h3>
+                        <p class="text-[var(--muted)] mb-6 leading-relaxed">
+                            Smart grid analytics, consumption forecasting, and asset management to optimize operations and reduce costs.
+                        </p>
+                        <div class="bg-gradient-to-r from-[var(--primary)]/10 to-[var(--primary)]/5 rounded-lg p-4 border-l-4 border-[var(--primary)]">
+                            <h4 class="text-sm font-semibold mb-3 text-[var(--primary)]">Key Solutions</h4>
+                            <ul class="space-y-2 text-sm text-[var(--muted)]">
+                                <li class="flex items-center">
+                                    <svg class="w-4 h-4 text-[var(--primary)] mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    Demand forecasting models
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="w-4 h-4 text-[var(--primary)] mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    Asset performance management
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="w-4 h-4 text-[var(--primary)] mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    Renewable energy optimization
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="w-4 h-4 text-[var(--primary)] mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    Customer usage analytics
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
 
-                <div class="bg-[var(--surface)] rounded-lg p-6 sm:p-8 border border-[var(--muted)]/20 h-full hover:shadow-lg transition-shadow" data-animate>
-                    <div class="text-4xl mb-4 text-center">🏢</div>
-                    <h3 class="text-xl sm:text-2xl font-semibold mb-3 text-center">Real Estate</h3>
-                    <p class="text-[var(--muted)] mb-4">
-                        Property valuation analytics, market trend analysis, and investment optimization for informed decision-making.
-                    </p>
-                    <div class="text-sm text-[var(--muted)]">
-                        <p class="font-medium mb-2">Solutions:</p>
-                        <ul class="space-y-1 list-disc list-inside">
-                            <li>Property value prediction</li>
-                            <li>Market trend analysis</li>
-                            <li>Portfolio optimization</li>
-                            <li>Tenant behavior analytics</li>
-                        </ul>
+                <!-- Real Estate -->
+                <div class="group relative bg-[var(--surface)] rounded-2xl p-8 border border-[var(--muted)]/20 hover:border-[var(--primary)]/50 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 overflow-hidden" data-animate>
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[var(--primary)]/20 to-transparent rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div class="relative z-10">
+                        <div class="flex justify-center mb-6">
+                            <div class="inline-flex items-center justify-center w-16 h-16 rounded-xl bg-gradient-to-br from-[var(--primary)] to-[var(--primary)]/70 text-white shadow-lg">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+                                </svg>
+                            </div>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 text-center">Real Estate</h3>
+                        <p class="text-[var(--muted)] mb-6 leading-relaxed">
+                            Property valuation analytics, market trend analysis, and investment optimization for informed decision-making.
+                        </p>
+                        <div class="bg-gradient-to-r from-[var(--primary)]/10 to-[var(--primary)]/5 rounded-lg p-4 border-l-4 border-[var(--primary)]">
+                            <h4 class="text-sm font-semibold mb-3 text-[var(--primary)]">Key Solutions</h4>
+                            <ul class="space-y-2 text-sm text-[var(--muted)]">
+                                <li class="flex items-center">
+                                    <svg class="w-4 h-4 text-[var(--primary)] mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    Property value prediction
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="w-4 h-4 text-[var(--primary)] mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    Market trend analysis
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="w-4 h-4 text-[var(--primary)] mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    Portfolio optimization
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="w-4 h-4 text-[var(--primary)] mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    Tenant behavior analytics
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
 
-                <div class="bg-[var(--surface)] rounded-lg p-6 sm:p-8 border border-[var(--muted)]/20 h-full hover:shadow-lg transition-shadow" data-animate>
-                    <div class="text-4xl mb-4 text-center">🎮</div>
-                    <h3 class="text-xl sm:text-2xl font-semibold mb-3 text-center">Technology & Media</h3>
-                    <p class="text-[var(--muted)] mb-4">
-                        User behavior analytics, content optimization, and platform performance monitoring to enhance engagement.
-                    </p>
-                    <div class="text-sm text-[var(--muted)]">
-                        <p class="font-medium mb-2">Solutions:</p>
-                        <ul class="space-y-1 list-disc list-inside">
-                            <li>User engagement analytics</li>
-                            <li>Content recommendation engines</li>
-                            <li>A/B testing and experimentation</li>
-                            <li>Platform performance monitoring</li>
-                        </ul>
+                <!-- Technology & Media -->
+                <div class="group relative bg-[var(--surface)] rounded-2xl p-8 border border-[var(--muted)]/20 hover:border-[var(--primary)]/50 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 overflow-hidden" data-animate>
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[var(--primary)]/20 to-transparent rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div class="relative z-10">
+                        <div class="flex justify-center mb-6">
+                            <div class="inline-flex items-center justify-center w-16 h-16 rounded-xl bg-gradient-to-br from-[var(--primary)] to-[var(--primary)]/70 text-white shadow-lg">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                </svg>
+                            </div>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 text-center">Technology & Media</h3>
+                        <p class="text-[var(--muted)] mb-6 leading-relaxed">
+                            User behavior analytics, content optimization, and platform performance monitoring to enhance engagement.
+                        </p>
+                        <div class="bg-gradient-to-r from-[var(--primary)]/10 to-[var(--primary)]/5 rounded-lg p-4 border-l-4 border-[var(--primary)]">
+                            <h4 class="text-sm font-semibold mb-3 text-[var(--primary)]">Key Solutions</h4>
+                            <ul class="space-y-2 text-sm text-[var(--muted)]">
+                                <li class="flex items-center">
+                                    <svg class="w-4 h-4 text-[var(--primary)] mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    User engagement analytics
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="w-4 h-4 text-[var(--primary)] mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    Content recommendation engines
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="w-4 h-4 text-[var(--primary)] mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    A/B testing and experimentation
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="w-4 h-4 text-[var(--primary)] mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    Platform performance monitoring
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
 
@@ -284,13 +590,14 @@
     </section>
 
     <!-- CTA Section -->
-    <section class="py-20 bg-[var(--primary)] text-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center" data-animate>
+    <section class="py-20 bg-gradient-to-r from-[var(--primary)] to-[var(--primary)]/80 text-white relative overflow-hidden">
+        <div class="absolute inset-0 bg-grid-pattern opacity-10"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10" data-animate>
             <h2 class="text-3xl md:text-4xl font-bold mb-4">Need Industry-Specific Solutions?</h2>
             <p class="text-xl mb-8 opacity-90">
                 Our experts understand your industry's unique challenges and opportunities.
             </p>
-            <a href="contact.html" class="inline-block px-8 py-3 bg-white text-[var(--primary)] rounded-lg hover:opacity-90 transition-opacity font-medium">
+            <a href="contact.html" class="inline-block px-8 py-3 bg-white text-[var(--primary)] rounded-lg hover:opacity-90 transition-opacity font-medium shadow-lg hover:shadow-xl transform hover:scale-105 transition-transform">
                 Contact Us
             </a>
         </div>
@@ -351,4 +658,3 @@
     <script src="assets/js/main.js"></script>
 </body>
 </html>
-

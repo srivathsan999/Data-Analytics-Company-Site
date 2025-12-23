@@ -35,36 +35,51 @@
     <!-- Navbar -->
     <nav class="sticky top-0 z-50 bg-[var(--surface)] border-b border-[var(--muted)]/20 backdrop-blur-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <a href="index.html" class="flex items-center space-x-2 sm:space-x-3 hover:opacity-80 transition-opacity">
+            <div class="flex justify-between items-center h-16 flex-nowrap">
+                <a href="index.html" class="flex items-center space-x-2 sm:space-x-3 hover:opacity-80 transition-opacity flex-shrink-0">
                     <img src="assets/img/logo.svg" alt="Logo" class="h-7 w-7 sm:h-8 sm:w-8">
                     <span class="text-lg sm:text-xl font-semibold logo-text">DataAnalytics Pro</span>
                 </a>
                 
                 <!-- Desktop Menu -->
-                <div class="hidden lg:flex items-center space-x-8">
-                    <a href="index.html" class="hover:text-[var(--primary)] transition-colors">Home</a>
-                    <a href="services.html" class="hover:text-[var(--primary)] transition-colors">Services</a>
-                    <a href="industries.html" class="hover:text-[var(--primary)] transition-colors">Industries</a>
-                    <a href="case-studies.html" class="hover:text-[var(--primary)] transition-colors">Case Studies</a>
-                    <a href="about.html" class="hover:text-[var(--primary)] transition-colors">About</a>
-                    <a href="contact.html" class="text-[var(--primary)] font-medium">Contact</a>
+                <div class="hidden lg:flex items-center space-x-5 xl:space-x-6 flex-nowrap flex-shrink-0 mx-4">
+                    <!-- Home Dropdown -->
+                    <div class="relative group" id="home-dropdown">
+                        <button class="hover:text-[var(--primary)] transition-colors whitespace-nowrap text-sm flex items-center space-x-1" aria-expanded="false" aria-haspopup="true" id="home-dropdown-button">
+                            <span>Home</span>
+                            <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div class="absolute top-full left-0 mt-2 w-48 bg-[var(--surface)] border border-[var(--muted)]/20 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50" id="home-dropdown-menu">
+                            <div class="py-2">
+                                <a href="index.html" class="block px-4 py-2 text-sm hover:bg-[var(--muted)]/10 transition-colors">Home1</a>
+                                <a href="home2.html" class="block px-4 py-2 text-sm hover:bg-[var(--muted)]/10 transition-colors">Home2</a>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="services.html" class="hover:text-[var(--primary)] transition-colors whitespace-nowrap text-sm">Services</a>
+                    <a href="industries.html" class="hover:text-[var(--primary)] transition-colors whitespace-nowrap text-sm">Industries</a>
+                    <a href="case-studies.html" class="hover:text-[var(--primary)] transition-colors whitespace-nowrap text-sm">Case Studies</a>
+                    <a href="about.html" class="hover:text-[var(--primary)] transition-colors whitespace-nowrap text-sm">About</a>
+                    <a href="contact.html" class="text-[var(--primary)] font-medium whitespace-nowrap text-sm">Contact</a>
+                    <a href="admin-dashboard.html" class="hover:text-[var(--primary)] transition-colors whitespace-nowrap text-sm">Dashboard</a>
                 </div>
                 
                 <!-- Desktop Actions -->
-                <div class="hidden lg:flex items-center space-x-4">
+                <div class="hidden lg:flex items-center space-x-2 xl:space-x-3 flex-nowrap flex-shrink-0">
                     <button id="theme-toggle" class="theme-toggle p-2 rounded-lg hover:bg-[var(--muted)]/10 transition-colors" aria-label="Toggle theme">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
                         </svg>
                     </button>
-                    <a href="login.html" class="nav-btn-login px-4 py-2 border border-[var(--muted)]/30 rounded-lg font-medium text-sm transition-all duration-300 hover:bg-[var(--surface)] hover:border-[var(--primary)]/50 hover:shadow-md hover:scale-105 hover:-translate-y-0.5">
+                    <a href="login.html" class="nav-btn-login px-3 xl:px-4 py-2 border border-[var(--muted)]/30 rounded-lg font-medium text-xs xl:text-sm transition-all duration-300 hover:bg-[var(--surface)] hover:border-[var(--primary)]/50 hover:shadow-md hover:scale-105 hover:-translate-y-0.5 whitespace-nowrap">
                         Login
                     </a>
-                    <a href="signup.html" class="nav-btn-signup px-4 py-2 border border-[var(--muted)]/30 rounded-lg font-medium text-sm transition-all duration-300 hover:bg-[var(--surface)] hover:border-[var(--primary)]/50 hover:shadow-md hover:scale-105 hover:-translate-y-0.5">
+                    <a href="signup.html" class="nav-btn-signup px-3 xl:px-4 py-2 border border-[var(--muted)]/30 rounded-lg font-medium text-xs xl:text-sm transition-all duration-300 hover:bg-[var(--surface)] hover:border-[var(--primary)]/50 hover:shadow-md hover:scale-105 hover:-translate-y-0.5 whitespace-nowrap">
                         Sign Up
                     </a>
-                    <a href="contact.html" class="px-4 py-2 bg-[var(--primary)] text-white rounded-lg hover:opacity-90 transition-opacity font-medium text-sm">
+                    <a href="contact.html" class="px-3 xl:px-4 py-2 bg-[var(--primary)] text-white rounded-lg hover:opacity-90 transition-opacity font-medium text-xs xl:text-sm whitespace-nowrap">
                         Request Consultation
                     </a>
                 </div>
@@ -87,12 +102,25 @@
             <!-- Mobile Menu -->
             <div id="mobile-menu" class="mobile-menu lg:hidden">
                 <div class="py-4 space-y-3 border-t border-[var(--muted)]/20">
-                    <a href="index.html" class="block px-4 py-2 hover:text-[var(--primary)] transition-colors">Home</a>
+                    <!-- Mobile Home Dropdown -->
+                    <div class="px-4">
+                        <button class="mobile-home-dropdown-toggle w-full flex items-center justify-between py-2 hover:text-[var(--primary)] transition-colors" aria-expanded="false">
+                            <span>Home</span>
+                            <svg class="w-4 h-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div class="mobile-home-dropdown hidden pl-4 mt-2 space-y-2">
+                            <a href="index.html" class="block py-2 text-sm hover:text-[var(--primary)] transition-colors">Home1</a>
+                            <a href="home2.html" class="block py-2 text-sm hover:text-[var(--primary)] transition-colors">Home2</a>
+                        </div>
+                    </div>
                     <a href="services.html" class="block px-4 py-2 hover:text-[var(--primary)] transition-colors">Services</a>
                     <a href="industries.html" class="block px-4 py-2 hover:text-[var(--primary)] transition-colors">Industries</a>
                     <a href="case-studies.html" class="block px-4 py-2 hover:text-[var(--primary)] transition-colors">Case Studies</a>
                     <a href="about.html" class="block px-4 py-2 hover:text-[var(--primary)] transition-colors">About</a>
                     <a href="contact.html" class="block px-4 py-2 text-[var(--primary)] font-medium">Contact</a>
+                    <a href="admin-dashboard.html" class="block px-4 py-2 hover:text-[var(--primary)] transition-colors">Dashboard</a>
                     <div class="pt-2 space-y-2 px-4">
                         <a href="login.html" class="block w-[70%] mx-auto px-4 py-2 text-center border border-[var(--muted)]/30 rounded-lg font-medium transition-all duration-300 hover:bg-[var(--surface)] hover:border-[var(--primary)]/50 hover:shadow-md hover:scale-105">
                             Login
