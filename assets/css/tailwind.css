@@ -135,6 +135,41 @@ html {
   overflow-y: auto;
 }
 
+/* Off-canvas drawer for admin mobile sidebar */
+.mobile-drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 16rem;
+  background-color: var(--surface);
+  border-right: 1px solid rgba(100,116,139,0.2);
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  z-index: 50;
+  padding-top: 4rem;
+  overflow-y: auto;
+}
+
+.mobile-drawer.open {
+  transform: translateX(0);
+}
+
+.mobile-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(15,23,42,0.4);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 40;
+}
+
+.mobile-backdrop.open {
+  opacity: 1;
+  visibility: visible;
+}
+
 /* Ensure mobile menu buttons are fully visible */
 @media (max-width: 1024px) {
   .mobile-menu .pt-2 {

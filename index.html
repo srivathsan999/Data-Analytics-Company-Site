@@ -86,9 +86,7 @@
                     <a href="signup.html" class="nav-btn-signup px-3 xl:px-4 py-2 border border-[var(--muted)]/30 rounded-lg font-medium text-xs xl:text-sm transition-all duration-300 hover:bg-[var(--surface)] hover:border-[var(--primary)]/50 hover:shadow-md hover:scale-105 hover:-translate-y-0.5 whitespace-nowrap">
                         Sign Up
                     </a>
-                    <a href="contact.html" class="px-3 xl:px-4 py-2 bg-[var(--primary)] text-white rounded-lg hover:opacity-90 transition-opacity font-medium text-xs xl:text-sm whitespace-nowrap">
-                        Request Consultation
-                    </a>
+                    
                 </div>
                 
                 <!-- Mobile/Tablet Actions -->
@@ -139,9 +137,7 @@
                         <a href="signup.html" class="block w-full px-4 py-2 text-center border border-[var(--muted)]/30 rounded-lg font-medium transition-all duration-300 hover:bg-[var(--surface)] hover:border-[var(--primary)]/50 hover:shadow-md hover:scale-105">
                             Sign Up
                         </a>
-                        <a href="contact.html" class="block w-full px-4 py-2 text-center bg-[var(--primary)] text-white rounded-lg hover:opacity-90 transition-opacity font-medium text-sm sm:text-base">
-                            Request Consultation
-                        </a>
+                        
                     </div>
                 </div>
             </div>
@@ -151,32 +147,33 @@
     <!-- Hero Section -->
     <section class="py-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto" data-animate>
-                <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6">
-                    Transform Data Into Strategic Advantage
-                </h1>
-                <p class="text-base sm:text-lg md:text-xl text-[var(--muted)] mb-6 sm:mb-8 px-2">
-                    Enterprise-grade analytics solutions that drive informed decision-making and measurable business outcomes.
-                </p>
-                <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-8 sm:mb-12 px-4">
-                    <a href="contact.html" class="hero-btn-primary px-6 sm:px-8 py-2.5 sm:py-3 bg-[var(--primary)] text-white rounded-lg font-medium text-sm sm:text-base transition-all duration-300 hover:shadow-lg hover:shadow-[var(--primary)]/50 hover:scale-105 hover:-translate-y-0.5">
-                        Get Started
-                    </a>
-                    <a href="services.html" class="hero-btn-secondary px-6 sm:px-8 py-2.5 sm:py-3 border border-[var(--muted)]/30 rounded-lg font-medium text-sm sm:text-base transition-all duration-300 hover:bg-[var(--surface)] hover:border-[var(--primary)]/50 hover:shadow-md hover:scale-105 hover:-translate-y-0.5">
-                        Our Services
-                    </a>
+            <div class="md:grid md:grid-cols-2 md:items-center md:gap-8 lg:gap-12">
+                <div class="text-center md:text-left max-w-3xl mx-auto md:mx-0" data-animate>
+                    <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6">
+                        Transform Data Into Strategic Advantage
+                    </h1>
+                    <p class="text-base sm:text-lg md:text-xl text-[var(--muted)] mb-6 sm:mb-8 px-2 md:px-0">
+                        Enterprise-grade analytics solutions that drive informed decision-making and measurable business outcomes.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 md:justify-start justify-center mb-8 sm:mb-12 px-4 md:px-0">
+                        <a href="contact.html" class="hero-btn-primary px-6 sm:px-8 py-2.5 sm:py-3 bg-[var(--primary)] text-white rounded-lg font-medium text-sm sm:text-base transition-all duration-300 hover:shadow-lg hover:shadow-[var(--primary)]/50 hover:scale-105 hover:-translate-y-0.5">
+                            Get Started
+                        </a>
+                        <a href="services.html" class="hero-btn-secondary px-6 sm:px-8 py-2.5 sm:py-3 border border-[var(--muted)]/30 rounded-lg font-medium text-sm sm:text-base transition-all duration-300 hover:bg-[var(--surface)] hover:border-[var(--primary)]/50 hover:shadow-md hover:scale-105 hover:-translate-y-0.5">
+                            Our Services
+                        </a>
+                    </div>
                 </div>
-            </div>
-            
-            <!-- Animated Data Analytics Visualization -->
-            <div class="mt-8 sm:mt-12 analytics-visualization" data-animate>
-                <div class="max-w-5xl mx-auto px-4">
-                    <svg viewBox="0 0 800 400" class="w-full h-auto" style="max-height: 400px;">
-                        <!-- Background Grid -->
-                        <defs>
-                            <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-                                <path d="M 40 0 L 0 0 0 40" fill="none" stroke="var(--muted)" stroke-width="0.5" opacity="0.2"/>
-                            </pattern>
+                
+                <!-- Animated Data Analytics Visualization -->
+                <div class="mt-8 sm:mt-12 md:mt-0 analytics-visualization md:flex md:justify-end md:pl-8" data-animate>
+                    <div class="max-w-5xl mx-auto md:mx-0 px-4 md:px-0">
+                        <svg viewBox="0 0 800 400" class="w-full h-auto" style="max-height: 400px;">
+                            <!-- Background Grid -->
+                            <defs>
+                                <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                                    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="var(--muted)" stroke-width="0.5" opacity="0.2"/>
+                                </pattern>
                             <linearGradient id="primaryGradient" x1="0%" y1="0%" x2="100%" y2="100%">
                                 <stop offset="0%" style="stop-color:var(--primary);stop-opacity:0.8" />
                                 <stop offset="100%" style="stop-color:var(--primary);stop-opacity:0.3" />
@@ -267,7 +264,8 @@
                                   class="draw-line"
                                   style="animation: drawLine 3s ease-in-out infinite;"/>
                         </g>
-                    </svg>
+                        </svg>
+                    </div>
                 </div>
             </div>
         </div>
@@ -468,4 +466,3 @@
     <script src="assets/js/main.js"></script>
 </body>
 </html>
-

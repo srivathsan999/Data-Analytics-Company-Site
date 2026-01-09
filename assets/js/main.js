@@ -76,10 +76,14 @@
   function initMobileMenu() {
     const menuToggle = document.getElementById('mobile-menu-toggle');
     const mobileMenu = document.getElementById('mobile-menu');
+    const backdrop = document.getElementById('mobile-menu-backdrop');
     
     if (menuToggle && mobileMenu) {
       menuToggle.addEventListener('click', () => {
         mobileMenu.classList.toggle('open');
+        if (backdrop) backdrop.classList.toggle('open');
+        const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
+        menuToggle.setAttribute('aria-expanded', expanded ? 'false' : 'true');
         
         // Update icon
         const icon = menuToggle.querySelector('svg');
@@ -97,10 +101,22 @@
       menuLinks.forEach(link => {
         link.addEventListener('click', () => {
           mobileMenu.classList.remove('open');
+          if (backdrop) backdrop.classList.remove('open');
           const icon = menuToggle.querySelector('svg');
           icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>';
         });
       });
+      
+      // Close when clicking backdrop
+      if (backdrop) {
+        backdrop.addEventListener('click', () => {
+          mobileMenu.classList.remove('open');
+          backdrop.classList.remove('open');
+          const icon = menuToggle.querySelector('svg');
+          icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>';
+          menuToggle.setAttribute('aria-expanded', 'false');
+        });
+      }
     }
   }
 
